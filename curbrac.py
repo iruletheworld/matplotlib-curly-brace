@@ -9,7 +9,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def curbrac(ax, p1, p2, k_r=0.1, lw=2, color='r', str_text='', int_line_num=2, fontdict={}):
+def curbrac(ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, **kwargs):
     '''
     '''
 
@@ -55,14 +55,14 @@ def curbrac(ax, p1, p2, k_r=0.1, lw=2, color='r', str_text='', int_line_num=2, f
     arc4y = r * np.sin(t) + y44
 
     # plot arcs
-    ax.plot(arc1x, arc1y, lw=lw, color=color)
-    ax.plot(arc2x, arc2y, lw=lw, color=color)
-    ax.plot(arc3x, arc3y, lw=lw, color=color)
-    ax.plot(arc4x, arc4y, lw=lw, color=color)
+    ax.plot(arc1x, arc1y, **kwargs)
+    ax.plot(arc2x, arc2y, **kwargs)
+    ax.plot(arc3x, arc3y, **kwargs)
+    ax.plot(arc4x, arc4y, **kwargs)
 
     # plot lines
-    ax.plot([arc1x[-1], arc2x[1]], [arc1y[-1], arc2y[1]], lw=lw, color=color)
-    ax.plot([arc3x[-1], arc4x[1]], [arc3y[-1], arc4y[1]], lw=lw, color=color)
+    ax.plot([arc1x[-1], arc2x[1]], [arc1y[-1], arc2y[1]], **kwargs)
+    ax.plot([arc3x[-1], arc4x[1]], [arc3y[-1], arc4y[1]], **kwargs)
 
     summit = [arc2x[-1], arc2y[-1]]
 
@@ -102,73 +102,7 @@ def curbrac(ax, p1, p2, k_r=0.1, lw=2, color='r', str_text='', int_line_num=2, f
 
     return theta, summit
 
-# # example 1
-# # unity circle
-# font = {'family': 'serif',
-#         'color':  'darkred',
-#         'weight': 'bold',
-#         'style': 'italic',
-#         'size': 10,
-#         }
 
-# dbl_width   = 1000.0
-# dbl_height  = 720.0
-# dbl_dpi     = 100.0
-
-# lw = 2
-# color='royalblue'
-
-# c = np.linspace(0, 2.0 * np.pi, 101)
-
-# l1 = 5.0
-# l2 = 15.0
-
-# x1 = l1 * np.cos(c)
-# y1 = l1 * np.sin(c)
-
-# x2 = l2 * np.cos(c)
-# y2 = l2 * np.sin(c)
-
-# fig1, axes1 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_height / dbl_dpi), dpi=dbl_dpi)
-# fig2, axes2 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_height / dbl_dpi), dpi=dbl_dpi)
-
-# axes1.plot(x1, y1, lw=lw, color=color)
-# axes1.plot(x2, y2, lw=lw, color=color)
-# axes2.plot(x1, y1, lw=lw, color=color)
-# axes2.plot(x2, y2, lw=lw, color=color)
-
-# axes1.set_aspect('equal', 'box')
-# axes1.grid(color='lightgray', linestyle='--')
-# axes2.set_aspect('equal', 'box')
-# axes2.grid(color='lightgray', linestyle='--')
-
-# k_r = 0.1
-
-# phi = np.linspace(0, 2.0 * np.pi, 13)
-
-# x1 = l1 * np.cos(phi)
-# y1 = l1 * np.sin(phi)
-
-# x2 = l2 * np.cos(phi)
-# y2 = l2 * np.sin(phi)
-
-# for i in range(0, len(x1)):
-
-#     p1 = [x1[i], y1[i]]
-#     p2 = [x2[i], y2[i]]
-
-#     str_text = 'Circle\nanti-clockwise'
-
-#     theta, pt = curbrac(axes1, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
-
-# for i in range(0, len(x1)):
-
-#     p1 = [x2[i], y2[i]]
-#     p2 = [x1[i], y1[i]]
-
-#     str_text = 'Circle\nclockwise'
-
-#     theta, pt = curbrac(axes2, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
 
 # # example 2
 # # epllise
