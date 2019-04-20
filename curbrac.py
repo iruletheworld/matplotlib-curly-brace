@@ -104,59 +104,6 @@ def curbrac(ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, **kwa
 
 
 
-# # example 2
-# # epllise
-# # https://stackoverflow.com/questions/10952060/plot-ellipse-with-matplotlib-pyplot-python
-
-# u = 0.0  # x-position of the center
-# v = 0.0  # y-position of the center
-# a1 = 2.0  # radius on the x-axis for epllise 1
-# b1 = 1.5  # radius on the y-axis for epllise 1
-# a2 = 7.0  # radius on the x-axis for epllise 2
-# b2 = 5.5  # radius on the y-axis for epllise 2
-
-# x1 = u + a1 * np.cos(c)
-# y1 = v + b1 * np.sin(c)
-# x2 = u + a2 * np.cos(c)
-# y2 = v + b2 * np.sin(c)
-
-# fig3, axes3 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
-# fig4, axes4 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
-
-# axes3.plot(x1, y1, lw=lw, color=color)
-# axes3.plot(x2, y2, lw=lw, color=color)
-# axes4.plot(x1, y1, lw=lw, color=color)
-# axes4.plot(x2, y2, lw=lw, color=color)
-
-# axes3.set_aspect('equal', 'box')
-# axes4.set_aspect('equal', 'box')
-# axes3.grid(color='lightgray', linestyle='--')
-# axes4.grid(color='lightgray', linestyle='--')
-
-# x1 = u + a1 * np.cos(phi)
-# y1 = v + b1 * np.sin(phi)
-# x2 = u + a2 * np.cos(phi)
-# y2 = v + b2 * np.sin(phi)
-
-# for i in range(0, len(x1)):
-
-#     p1 = [x1[i], y1[i]]
-#     p2 = [x2[i], y2[i]]
-
-#     str_text = 'Epllise\nanti-clockwise'
-
-#     theta, pt = curbrac(axes3, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
-
-# for i in range(0, len(x1)):
-
-#     p1 = [x2[i], y2[i]]
-#     p2 = [x1[i], y1[i]]
-
-#     str_text = 'Epllise\nclockwise'
-
-#     theta, pt = curbrac(axes4, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
-
-
 # # emaple 3
 # # hypocycloid
 
