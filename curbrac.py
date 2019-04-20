@@ -152,31 +152,3 @@ def curbrac(ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, **kwa
 #     str_text = 'Hypocycloid\nclockwise'
 
 #     theta, pt = curbrac(axes6, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
-
-# # example 4
-
-# # x = c
-# # y = np.sin(c)
-
-# # fig7, axes7 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
-
-# # axes7.plot(x, y, lw=lw, color=color)
-# # axes7.set_aspect('equal', 'box')
-# # axes7.grid(color='lightgray', linestyle='--')
-# # axes7.set_xlim(xmin=0.0, xmax=2.0*np.pi)
-
-# # p1 = [0.0, 0.0]
-# # p2 = [np.pi, 0.0]
-
-# # font = {'family': 'serif',
-# #         'color':  'k',
-# #         'weight': 'bold',
-# #         'style': 'italic',
-# #         'size': 20,
-# #         }
-
-# # str_text = '$\pi$\n'
-
-# # curbrac(axes7, p2, p1, k_r, str_text=str_text, int_line_num=2, fontdict=font)
-
-# # plt.show()
