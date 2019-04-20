@@ -93,62 +93,10 @@ def curbrac(ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, **kwa
 
             str_text = str_text + str_temp
 
-        ax.axes.text(arc2x[-1], arc2y[-1], str_text,
-                       ha='center', va='center', rotation=rotation, fontdict=fontdict)
+        ax.axes.text(arc2x[-1], arc2y[-1], str_text, ha='center', va='center', rotation=rotation, fontdict=fontdict)
 
     else:
 
         pass
 
     return theta, summit
-
-
-
-# # emaple 3
-# # hypocycloid
-
-# a1 = 5.0
-# a2 = 20.0
-
-# x1 = a1 * (np.sin(c) ** 3)
-# y1 = a1 * (np.cos(c) ** 3)
-# x2 = a2 * (np.sin(c) ** 3)
-# y2 = a2 * (np.cos(c) ** 3)
-
-# fig5, axes5 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
-# fig6, axes6 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
-
-# axes5.plot(x1, y1, lw=lw, color=color)
-# axes5.plot(x2, y2, lw=lw, color=color)
-# axes6.plot(x1, y1, lw=lw, color=color)
-# axes6.plot(x2, y2, lw=lw, color=color)
-
-# axes5.set_aspect('equal', 'box')
-# axes5.grid(color='lightgray', linestyle='--')
-# axes6.set_aspect('equal', 'box')
-# axes6.grid(color='lightgray', linestyle='--')
-
-# phi = np.linspace(0, 2.0 * np.pi, 9)
-
-# x1 = a1 * (np.sin(phi) ** 3)
-# y1 = a1 * (np.cos(phi) ** 3)
-# x2 = a2 * (np.sin(phi) ** 3)
-# y2 = a2 * (np.cos(phi) ** 3)
-
-# for i in range(0, len(x1)):
-
-#     p1 = [x1[i], y1[i]]
-#     p2 = [x2[i], y2[i]]
-
-#     str_text = 'Hypocycloid\nanti-clockwise'
-
-#     theta, pt = curbrac(axes5, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
-
-# for i in range(0, len(x1)):
-
-#     p1 = [x2[i], y2[i]]
-#     p2 = [x1[i], y1[i]]
-
-#     str_text = 'Hypocycloid\nclockwise'
-
-#     theta, pt = curbrac(axes6, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
