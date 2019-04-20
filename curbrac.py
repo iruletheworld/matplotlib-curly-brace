@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*- 
 
+'''
+'''
+
 # https://stackoverflow.com/questions/1289681/drawing-braces-with-pyx/1290110#1290110
 # https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation
 
@@ -99,200 +102,200 @@ def curbrac(ax, p1, p2, k_r=0.1, lw=2, color='r', str_text='', int_line_num=2, f
 
     return theta, summit
 
-# example 1
-# unity circle
-font = {'family': 'serif',
-        'color':  'darkred',
-        'weight': 'bold',
-        'style': 'italic',
-        'size': 10,
-        }
+# # example 1
+# # unity circle
+# font = {'family': 'serif',
+#         'color':  'darkred',
+#         'weight': 'bold',
+#         'style': 'italic',
+#         'size': 10,
+#         }
 
-dbl_width   = 1000.0
-dbl_height  = 720.0
-dbl_dpi     = 100.0
+# dbl_width   = 1000.0
+# dbl_height  = 720.0
+# dbl_dpi     = 100.0
 
-lw = 2
-color='royalblue'
+# lw = 2
+# color='royalblue'
 
-c = np.linspace(0, 2.0 * np.pi, 101)
+# c = np.linspace(0, 2.0 * np.pi, 101)
 
-l1 = 5.0
-l2 = 15.0
+# l1 = 5.0
+# l2 = 15.0
 
-x1 = l1 * np.cos(c)
-y1 = l1 * np.sin(c)
+# x1 = l1 * np.cos(c)
+# y1 = l1 * np.sin(c)
 
-x2 = l2 * np.cos(c)
-y2 = l2 * np.sin(c)
+# x2 = l2 * np.cos(c)
+# y2 = l2 * np.sin(c)
 
-fig1, axes1 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_height / dbl_dpi), dpi=dbl_dpi)
-fig2, axes2 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_height / dbl_dpi), dpi=dbl_dpi)
+# fig1, axes1 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_height / dbl_dpi), dpi=dbl_dpi)
+# fig2, axes2 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_height / dbl_dpi), dpi=dbl_dpi)
 
-axes1.plot(x1, y1, lw=lw, color=color)
-axes1.plot(x2, y2, lw=lw, color=color)
-axes2.plot(x1, y1, lw=lw, color=color)
-axes2.plot(x2, y2, lw=lw, color=color)
+# axes1.plot(x1, y1, lw=lw, color=color)
+# axes1.plot(x2, y2, lw=lw, color=color)
+# axes2.plot(x1, y1, lw=lw, color=color)
+# axes2.plot(x2, y2, lw=lw, color=color)
 
-axes1.set_aspect('equal', 'box')
-axes1.grid(color='lightgray', linestyle='--')
-axes2.set_aspect('equal', 'box')
-axes2.grid(color='lightgray', linestyle='--')
+# axes1.set_aspect('equal', 'box')
+# axes1.grid(color='lightgray', linestyle='--')
+# axes2.set_aspect('equal', 'box')
+# axes2.grid(color='lightgray', linestyle='--')
 
-k_r = 0.1
+# k_r = 0.1
 
-phi = np.linspace(0, 2.0 * np.pi, 13)
+# phi = np.linspace(0, 2.0 * np.pi, 13)
 
-x1 = l1 * np.cos(phi)
-y1 = l1 * np.sin(phi)
+# x1 = l1 * np.cos(phi)
+# y1 = l1 * np.sin(phi)
 
-x2 = l2 * np.cos(phi)
-y2 = l2 * np.sin(phi)
+# x2 = l2 * np.cos(phi)
+# y2 = l2 * np.sin(phi)
 
-for i in range(0, len(x1)):
+# for i in range(0, len(x1)):
 
-    p1 = [x1[i], y1[i]]
-    p2 = [x2[i], y2[i]]
+#     p1 = [x1[i], y1[i]]
+#     p2 = [x2[i], y2[i]]
 
-    str_text = 'Circle\nanti-clockwise'
+#     str_text = 'Circle\nanti-clockwise'
 
-    theta, pt = curbrac(axes1, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
+#     theta, pt = curbrac(axes1, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
 
-for i in range(0, len(x1)):
+# for i in range(0, len(x1)):
 
-    p1 = [x2[i], y2[i]]
-    p2 = [x1[i], y1[i]]
+#     p1 = [x2[i], y2[i]]
+#     p2 = [x1[i], y1[i]]
 
-    str_text = 'Circle\nclockwise'
+#     str_text = 'Circle\nclockwise'
 
-    theta, pt = curbrac(axes2, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
+#     theta, pt = curbrac(axes2, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
 
-# example 2
-# epllise
-# https://stackoverflow.com/questions/10952060/plot-ellipse-with-matplotlib-pyplot-python
+# # example 2
+# # epllise
+# # https://stackoverflow.com/questions/10952060/plot-ellipse-with-matplotlib-pyplot-python
 
-u = 0.0  # x-position of the center
-v = 0.0  # y-position of the center
-a1 = 2.0  # radius on the x-axis for epllise 1
-b1 = 1.5  # radius on the y-axis for epllise 1
-a2 = 7.0  # radius on the x-axis for epllise 2
-b2 = 5.5  # radius on the y-axis for epllise 2
+# u = 0.0  # x-position of the center
+# v = 0.0  # y-position of the center
+# a1 = 2.0  # radius on the x-axis for epllise 1
+# b1 = 1.5  # radius on the y-axis for epllise 1
+# a2 = 7.0  # radius on the x-axis for epllise 2
+# b2 = 5.5  # radius on the y-axis for epllise 2
 
-x1 = u + a1 * np.cos(c)
-y1 = v + b1 * np.sin(c)
-x2 = u + a2 * np.cos(c)
-y2 = v + b2 * np.sin(c)
+# x1 = u + a1 * np.cos(c)
+# y1 = v + b1 * np.sin(c)
+# x2 = u + a2 * np.cos(c)
+# y2 = v + b2 * np.sin(c)
 
-fig3, axes3 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
-fig4, axes4 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
+# fig3, axes3 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
+# fig4, axes4 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
 
-axes3.plot(x1, y1, lw=lw, color=color)
-axes3.plot(x2, y2, lw=lw, color=color)
-axes4.plot(x1, y1, lw=lw, color=color)
-axes4.plot(x2, y2, lw=lw, color=color)
+# axes3.plot(x1, y1, lw=lw, color=color)
+# axes3.plot(x2, y2, lw=lw, color=color)
+# axes4.plot(x1, y1, lw=lw, color=color)
+# axes4.plot(x2, y2, lw=lw, color=color)
 
-axes3.set_aspect('equal', 'box')
-axes4.set_aspect('equal', 'box')
-axes3.grid(color='lightgray', linestyle='--')
-axes4.grid(color='lightgray', linestyle='--')
+# axes3.set_aspect('equal', 'box')
+# axes4.set_aspect('equal', 'box')
+# axes3.grid(color='lightgray', linestyle='--')
+# axes4.grid(color='lightgray', linestyle='--')
 
-x1 = u + a1 * np.cos(phi)
-y1 = v + b1 * np.sin(phi)
-x2 = u + a2 * np.cos(phi)
-y2 = v + b2 * np.sin(phi)
+# x1 = u + a1 * np.cos(phi)
+# y1 = v + b1 * np.sin(phi)
+# x2 = u + a2 * np.cos(phi)
+# y2 = v + b2 * np.sin(phi)
 
-for i in range(0, len(x1)):
+# for i in range(0, len(x1)):
 
-    p1 = [x1[i], y1[i]]
-    p2 = [x2[i], y2[i]]
+#     p1 = [x1[i], y1[i]]
+#     p2 = [x2[i], y2[i]]
 
-    str_text = 'Epllise\nanti-clockwise'
+#     str_text = 'Epllise\nanti-clockwise'
 
-    theta, pt = curbrac(axes3, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
+#     theta, pt = curbrac(axes3, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
 
-for i in range(0, len(x1)):
+# for i in range(0, len(x1)):
 
-    p1 = [x2[i], y2[i]]
-    p2 = [x1[i], y1[i]]
+#     p1 = [x2[i], y2[i]]
+#     p2 = [x1[i], y1[i]]
 
-    str_text = 'Epllise\nclockwise'
+#     str_text = 'Epllise\nclockwise'
 
-    theta, pt = curbrac(axes4, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
+#     theta, pt = curbrac(axes4, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
 
 
-# emaple 3
-# hypocycloid
+# # emaple 3
+# # hypocycloid
 
-a1 = 5.0
-a2 = 20.0
+# a1 = 5.0
+# a2 = 20.0
 
-x1 = a1 * (np.sin(c) ** 3)
-y1 = a1 * (np.cos(c) ** 3)
-x2 = a2 * (np.sin(c) ** 3)
-y2 = a2 * (np.cos(c) ** 3)
+# x1 = a1 * (np.sin(c) ** 3)
+# y1 = a1 * (np.cos(c) ** 3)
+# x2 = a2 * (np.sin(c) ** 3)
+# y2 = a2 * (np.cos(c) ** 3)
 
-fig5, axes5 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
-fig6, axes6 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
+# fig5, axes5 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
+# fig6, axes6 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
 
-axes5.plot(x1, y1, lw=lw, color=color)
-axes5.plot(x2, y2, lw=lw, color=color)
-axes6.plot(x1, y1, lw=lw, color=color)
-axes6.plot(x2, y2, lw=lw, color=color)
+# axes5.plot(x1, y1, lw=lw, color=color)
+# axes5.plot(x2, y2, lw=lw, color=color)
+# axes6.plot(x1, y1, lw=lw, color=color)
+# axes6.plot(x2, y2, lw=lw, color=color)
 
-axes5.set_aspect('equal', 'box')
-axes5.grid(color='lightgray', linestyle='--')
-axes6.set_aspect('equal', 'box')
-axes6.grid(color='lightgray', linestyle='--')
+# axes5.set_aspect('equal', 'box')
+# axes5.grid(color='lightgray', linestyle='--')
+# axes6.set_aspect('equal', 'box')
+# axes6.grid(color='lightgray', linestyle='--')
 
-phi = np.linspace(0, 2.0 * np.pi, 9)
+# phi = np.linspace(0, 2.0 * np.pi, 9)
 
-x1 = a1 * (np.sin(phi) ** 3)
-y1 = a1 * (np.cos(phi) ** 3)
-x2 = a2 * (np.sin(phi) ** 3)
-y2 = a2 * (np.cos(phi) ** 3)
+# x1 = a1 * (np.sin(phi) ** 3)
+# y1 = a1 * (np.cos(phi) ** 3)
+# x2 = a2 * (np.sin(phi) ** 3)
+# y2 = a2 * (np.cos(phi) ** 3)
 
-for i in range(0, len(x1)):
+# for i in range(0, len(x1)):
 
-    p1 = [x1[i], y1[i]]
-    p2 = [x2[i], y2[i]]
+#     p1 = [x1[i], y1[i]]
+#     p2 = [x2[i], y2[i]]
 
-    str_text = 'Hypocycloid\nanti-clockwise'
+#     str_text = 'Hypocycloid\nanti-clockwise'
 
-    theta, pt = curbrac(axes5, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
+#     theta, pt = curbrac(axes5, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
 
-for i in range(0, len(x1)):
+# for i in range(0, len(x1)):
 
-    p1 = [x2[i], y2[i]]
-    p2 = [x1[i], y1[i]]
+#     p1 = [x2[i], y2[i]]
+#     p2 = [x1[i], y1[i]]
 
-    str_text = 'Hypocycloid\nclockwise'
+#     str_text = 'Hypocycloid\nclockwise'
 
-    theta, pt = curbrac(axes6, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
+#     theta, pt = curbrac(axes6, p1, p2, k_r, str_text=str_text, int_line_num=2, fontdict=font)
 
-# example 4
+# # example 4
 
-x = c
-y = np.sin(c)
+# # x = c
+# # y = np.sin(c)
 
-fig7, axes7 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
+# # fig7, axes7 = plt.subplots(1, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
 
-axes7.plot(x, y, lw=lw, color=color)
-axes7.set_aspect('equal', 'box')
-axes7.grid(color='lightgray', linestyle='--')
-axes7.set_xlim(xmin=0.0, xmax=2.0*np.pi)
+# # axes7.plot(x, y, lw=lw, color=color)
+# # axes7.set_aspect('equal', 'box')
+# # axes7.grid(color='lightgray', linestyle='--')
+# # axes7.set_xlim(xmin=0.0, xmax=2.0*np.pi)
 
-p1 = [0.0, 0.0]
-p2 = [np.pi, 0.0]
+# # p1 = [0.0, 0.0]
+# # p2 = [np.pi, 0.0]
 
-font = {'family': 'serif',
-        'color':  'k',
-        'weight': 'bold',
-        'style': 'italic',
-        'size': 20,
-        }
+# # font = {'family': 'serif',
+# #         'color':  'k',
+# #         'weight': 'bold',
+# #         'style': 'italic',
+# #         'size': 20,
+# #         }
 
-str_text = '$\pi$\n'
+# # str_text = '$\pi$\n'
 
-curbrac(axes7, p2, p1, k_r, str_text=str_text, int_line_num=2, fontdict=font)
+# # curbrac(axes7, p2, p1, k_r, str_text=str_text, int_line_num=2, fontdict=font)
 
-plt.show()
+# # plt.show()
