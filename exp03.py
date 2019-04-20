@@ -52,7 +52,7 @@ axes[1].plot(x2, y2, lw=lw, color=color)
 
 axes[0].set_aspect('equal', 'box')
 axes[0].grid(color='lightgray', linestyle='--')
-axes[0].set_title(str_title2, fontdict=font)
+axes[0].set_title(str_title1, fontdict=font)
 axes[1].set_aspect('equal', 'box')
 axes[1].grid(color='lightgray', linestyle='--')
 axes[1].set_title(str_title2, fontdict=font)
