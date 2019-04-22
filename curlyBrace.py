@@ -75,7 +75,8 @@ def getAxSize(fig, ax):
 
     return ax_width, ax_height
 
-def curlyBrace(fig, ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, **kwargs):
+def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_num=2, fontdict={}, **kwargs):
+# def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_num=2, fontdict={}, **kwargs):
     '''
     .. _curlyBrace :
 
@@ -102,6 +103,20 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={
         This is the gain controlling how "curvy" and "pointy" the bracket is.
 
         Note that, if this gain is too big, the bracket would be very strange.
+
+    bool_auto : boolean
+        This is a switch controlling wether to use the auto calculation of axes
+        scales.
+
+        When the two axes do not have the same aspects, i.e., not "equal" scales,
+        this should be turned on, i.e., True.
+
+        When "equal" aspect is used, this should be turned off, i.e., False.
+
+        If you do not set this to False when setting the axes aspect to "equal",
+        the bracket will be in funny shape.
+
+        Default = True
 
     str_text : string
         The annotation text of the bracket. It would displayed at the mid point
@@ -198,6 +213,16 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={
     # get the ratio of pixels/length
     xscale = ax_width / (ax_xlim[1] - ax_xlim[0])
     yscale = ax_height / (ax_ylim[1] - ax_ylim[0])
+
+    # this is to deal with 'equal' axes aspects
+    if bool_auto:
+
+        pass
+
+    else:
+
+        xscale = 1.0
+        yscale = 1.0
 
     # convert length to pixels, 
     # need to minus the lower limit to move the points back to the origin. Then add the limits back on end.
