@@ -211,29 +211,19 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
 
             pt2[0] = 0
 
-        if ax_xlim[0] > 0.0:
+        for i in range(0, len(ax_xlim)):
 
-            ax_xlim[0] = np.log(ax_xlim[0])
+            if ax_xlim[i] > 0.0:
 
-        elif ax_xlim[0] < 0.0:
+                ax_xlim[i] = np.log(ax_xlim[i])
 
-            ax_xlim[0] = -np.log(abs(ax_xlim[0]))
+            elif ax_xlim[i] < 0.0:
 
-        else:
+                ax_xlim[i] = -np.log(abs(ax_xlim[i]))
 
-            ax_xlim[0] = 0.0
+            else:
 
-        if ax_xlim[1] > 0.0:
-
-            ax_xlim[1] = np.log(ax_xlim[1])
-
-        elif ax_xlim[1] < 0.0:
-
-            ax_xlim[1] = -np.log(abs(ax_xlim[1]))
-
-        else:
-
-            ax_xlim[1] = 0.0
+                ax_xlim[i] = 0.0
 
     else:
 
@@ -252,7 +242,7 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
 
         else:
 
-            pt1[0] = 0.0
+            pt1[1] = 0.0
 
         if p2[1] > 0.0:
 
@@ -266,29 +256,19 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
 
             pt2[1] = 0.0
 
-        if ax_ylim[0] > 0.0:
+        for i in range(0, len(ax_ylim)):
 
-            ax_ylim[0] = np.log(ax_ylim[0])
+            if ax_ylim[i] > 0.0:
 
-        elif ax_ylim[0] < 0.0:
+                ax_ylim[i] = np.log(ax_ylim[i])
 
-            ax_ylim[0] = -np.log(abs(ax_ylim[0]))
+            elif ax_ylim[i] < 0.0:
 
-        else:
+                ax_ylim[i] = -np.log(abs(ax_ylim[i]))
 
-            ax_ylim[0] = 0.0
+            else:
 
-        if ax_ylim[1] > 0.0:
-
-            ax_ylim[1] = np.log(ax_ylim[1])
-
-        elif ax_ylim[1] < 0.0:
-
-            ax_ylim[1] = -np.log(abs(ax_ylim[1]))
-
-        else:
-
-            ax_ylim[1] = 0.0
+                ax_ylim[i] = 0.0
 
     else:
 
