@@ -181,17 +181,59 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
 
     ax_width, ax_height = getAxSize(fig, ax)
 
-    ax_xlim = ax.get_xlim()
-    ax_ylim = ax.get_ylim()
+    ax_xlim = list(ax.get_xlim())
+    ax_ylim = list(ax.get_ylim())
 
     # log scale consideration
     if 'log' in ax.get_xaxis().get_scale():
 
-        pt1[0] = np.log(p1[0])
+        if p1[0] > 0.0:
 
-        pt2[0] = np.log(p2[0])
+            pt1[0] = np.log(p1[0])
 
-        ax_xlim = np.log(ax_xlim)
+        elif p1[0] < 0.0:
+
+            pt1[0] = -np.log(abs(p1[0]))
+
+        else:
+
+            pt1[0] = 0.0
+
+        if p2[0] > 0.0:
+
+            pt2[0] = np.log(p2[0])
+
+        elif p2[0] < 0.0:
+
+            pt2[0] = -np.log(abs(p2[0]))
+
+        else:
+
+            pt2[0] = 0
+
+        if ax_xlim[0] > 0.0:
+
+            ax_xlim[0] = np.log(ax_xlim[0])
+
+        elif ax_xlim[0] < 0.0:
+
+            ax_xlim[0] = -np.log(abs(ax_xlim[0]))
+
+        else:
+
+            ax_xlim[0] = 0.0
+
+        if ax_xlim[1] > 0.0:
+
+            ax_xlim[1] = np.log(ax_xlim[1])
+
+        elif ax_xlim[1] < 0.0:
+
+            ax_xlim[1] = -np.log(abs(ax_xlim[1]))
+
+        else:
+
+            ax_xlim[1] = 0.0
 
     else:
 
@@ -200,11 +242,53 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
 
     if 'log' in ax.get_yaxis().get_scale():
 
-        pt1[1] = np.log(p1[1])
+        if p1[1] > 0.0:
 
-        pt2[1] = np.log(p2[1])
+            pt1[1] = np.log(p1[1])
 
-        ax_ylim = np.log(ax_ylim)
+        elif p1[1] < 0.0:
+
+            pt1[1] = -np.log(abs(p1[1]))
+
+        else:
+
+            pt1[0] = 0.0
+
+        if p2[1] > 0.0:
+
+            pt2[1] = np.log(p2[1])
+
+        elif p2[1] < 0.0:
+
+            pt2[1] = -np.log(abs(p2[1]))
+
+        else:
+
+            pt2[1] = 0.0
+
+        if ax_ylim[0] > 0.0:
+
+            ax_ylim[0] = np.log(ax_ylim[0])
+
+        elif ax_ylim[0] < 0.0:
+
+            ax_ylim[0] = -np.log(abs(ax_ylim[0]))
+
+        else:
+
+            ax_ylim[0] = 0.0
+
+        if ax_ylim[1] > 0.0:
+
+            ax_ylim[1] = np.log(ax_ylim[1])
+
+        elif ax_ylim[1] < 0.0:
+
+            ax_ylim[1] = -np.log(abs(ax_ylim[1]))
+
+        else:
+
+            ax_ylim[1] = 0.0
 
     else:
 
@@ -212,8 +296,8 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
         pt2[1] = p2[1]
 
     # get the ratio of pixels/length
-    xscale = ax_width / (ax_xlim[1] - ax_xlim[0])
-    yscale = ax_height / (ax_ylim[1] - ax_ylim[0])
+    xscale = ax_width / abs(ax_xlim[1] - ax_xlim[0])
+    yscale = ax_height / abs(ax_ylim[1] - ax_ylim[0])
 
     # this is to deal with 'equal' axes aspects
     if bool_auto:
@@ -288,10 +372,61 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
     # log scale consideration
     if 'log' in ax.get_xaxis().get_scale():
 
-        arc1x = np.exp(arc1x)
-        arc2x = np.exp(arc2x)
-        arc3x = np.exp(arc3x)
-        arc4x = np.exp(arc4x)
+        for i in range(0, len(arc1x)):
+
+            if arc1x[i] > 0.0:
+
+                arc1x[i] = np.exp(arc1x[i])
+
+            elif arc1x[i] < 0.0:
+
+                arc1x[i] = -np.exp(abs(arc1x[i]))
+
+            else:
+
+                arc1x[i] = 0.0
+
+        for i in range(0, len(arc2x)):
+
+            if arc2x[i] > 0.0:
+
+                arc2x[i] = np.exp(arc2x[i])
+
+            elif arc2x[i] < 0.0:
+
+                arc2x[i] = -np.exp(abs(arc2x[i]))
+
+            else:
+
+                arc2x[i] = 0.0
+
+        for i in range(0, len(arc3x)):
+
+            if arc3x[i] > 0.0:
+
+                arc3x[i] = np.exp(arc3x[i])
+
+            elif arc3x[i] < 0.0:
+
+                arc3x[i] = -np.exp(abs(arc3x[i]))
+
+            else:
+
+                arc3x[i] = 0.0
+
+        for i in range(0, len(arc4x)):
+
+            if arc4x[i] > 0.0:
+
+                arc4x[i] = np.exp(arc4x[i])
+
+            elif arc4x[i] < 0.0:
+
+                arc4x[i] = -np.exp(abs(arc4x[i]))
+
+            else:
+
+                arc4x[i] = 0.0
 
     else:
 
@@ -299,10 +434,61 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
 
     if 'log' in ax.get_yaxis().get_scale():
 
-        arc1y = np.exp(arc1y)
-        arc2y = np.exp(arc2y)
-        arc3y = np.exp(arc3y)
-        arc4y = np.exp(arc4y)
+        for i in range(0, len(arc1y)):
+
+            if arc1y[i] > 0.0:
+
+                arc1y[i] = np.exp(arc1y[i])
+
+            elif arc1y[i] < 0.0:
+
+                arc1y[i] = -np.exp(abs(arc1y[i]))
+
+            else:
+
+                arc1y[i] = 0.0
+
+        for i in range(0, len(arc2y)):
+
+            if arc2y[i] > 0.0:
+
+                arc2y[i] = np.exp(arc2y[i])
+
+            elif arc2y[i] < 0.0:
+
+                arc2y[i] = -np.exp(abs(arc2y[i]))
+
+            else:
+
+                arc2y[i] = 0.0
+
+        for i in range(0, len(arc3y)):
+
+            if arc3y[i] > 0.0:
+
+                arc3y[i] = np.exp(arc3y[i])
+
+            elif arc3y[i] < 0.0:
+
+                arc3y[i] = -np.exp(abs(arc3y[i]))
+
+            else:
+
+                arc3y[i] = 0.0
+
+        for i in range(0, len(arc4y)):
+
+            if arc4y[i] > 0.0:
+
+                arc4y[i] = np.exp(arc4y[i])
+
+            elif arc4y[i] < 0.0:
+
+                arc4y[i] = -np.exp(abs(arc4y[i]))
+
+            else:
+
+                arc4y[i] = 0.0
 
     else:
 
@@ -346,6 +532,10 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
             rotation = ang
 
             str_text = str_text + str_temp
+
+        else:
+
+            rotation = ang
 
         ax.axes.text(arc2x[-1], arc2y[-1], str_text, ha='center', va='center', rotation=rotation, fontdict=fontdict)
 
