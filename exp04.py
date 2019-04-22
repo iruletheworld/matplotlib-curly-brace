@@ -1,20 +1,31 @@
 # -*- coding: utf-8 -*- 
 
 '''
-# astroid
+Author : 高斯羽 博士 (Dr. GAO, Siyu)
+
+Version : 1.0.0
+
+Last Modified : 2019-04-22
+
+This script is an example to demonstration how to use the "curlyBrace" module to 
+plot curly brackets using matplotlib.
+
+This example demonstrate annotating two pairs of astroids.
+
+The parametric equation of astroid can be found:
 http://jwilson.coe.uga.edu/EMAT6680Fa2014/Gieseking/Exploration%2010/Parametric%20Equations.html
 '''
 
 import matplotlib.pyplot as plt
 import numpy as np
-from curbrac import curbrac
+from curlyBrace import curlyBrace
 
 # figure size and dpi
 dbl_width   = 1000.0
-dbl_height  = 600.0
+dbl_height  = 800.0
 dbl_dpi     = 100.0
 
-# line width and colour for the epllise
+# line width and colour for the astroids
 lw = 2
 color='royalblue'
 
@@ -37,19 +48,19 @@ font = {'family': 'Arial',
         'size': 12,
         }
 
-str_title1 = 'Example: Anti-Clockwise for a a pair of concentrate astroid'
-str_title2 = 'Example: Clockwise for a a pair of concentrate astroid'
+str_title1 = 'Example: Not "equal" axes aspect, auto scale on'
+str_title2 = 'Example: "Equal" axes aspect, auto scale off'
 
 fig, axes = plt.subplots(2, 1, figsize=(dbl_width / dbl_dpi, dbl_width / dbl_dpi), dpi=dbl_dpi)
 
 axes[0].plot(x1, y1, lw=lw, color=color)
 axes[0].plot(x2, y2, lw=lw, color=color)
-axes[1].plot(x1, y1, lw=lw, color=color)
-axes[1].plot(x2, y2, lw=lw, color=color)
-
-axes[0].set_aspect('equal', 'box')
+# axes[0].set_aspect('equal', 'box')
 axes[0].grid(color='lightgray', linestyle='--')
 axes[0].set_title(str_title1, fontdict=font)
+
+axes[1].plot(x1, y1, lw=lw, color=color)
+axes[1].plot(x2, y2, lw=lw, color=color)
 axes[1].set_aspect('equal', 'box')
 axes[1].grid(color='lightgray', linestyle='--')
 axes[1].set_title(str_title2, fontdict=font)
@@ -75,7 +86,8 @@ font = {'family': 'serif',
 
 # bracket line width and colour
 lw = 2
-color = 'r'
+color1 = 'r'
+color2 = 'darkorange'
 
 for i in range(0, len(x1)):
 
@@ -84,7 +96,7 @@ for i in range(0, len(x1)):
 
     str_text = 'Astroid\nanti-clockwise'
 
-    theta, pt = curbrac(axes[0], p1, p2, k_r, str_text=str_text, color=color, lw=lw, int_line_num=2, fontdict=font)
+    curlyBrace(fig, axes[0], p1, p2, k_r, bool_auto=True, str_text=str_text, color=color1, lw=lw, int_line_num=2, fontdict=font)
 
 for i in range(0, len(x1)):
 
@@ -93,6 +105,6 @@ for i in range(0, len(x1)):
 
     str_text = 'Astroid\nclockwise'
 
-    theta, pt = curbrac(axes[1], p1, p2, k_r, str_text=str_text, color=color, lw=lw, int_line_num=2, fontdict=font)
+    curlyBrace(fig, axes[1], p1, p2, k_r, bool_auto=False, str_text=str_text, color=color2, lw=lw, int_line_num=2, fontdict=font)
 
 plt.show()
