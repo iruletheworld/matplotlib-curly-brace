@@ -5,14 +5,67 @@ Note that you must transform the axis coordinates to screen coordinates!
 Otherwise you may not be able to see the arcs!
 '''
 
-# https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation
+'''
+Module Name : curbrac
+
+Author : 高斯羽 博士 (Dr. GAO, Siyu)
+
+Version : 1.0.1
+
+Last Modified : 2019-04-22
+
+This module is basically an Python implementation of the function written Pål Næverlid Sævik
+for Matlab (link in Reference).
+
+The function "curlyBrace" allows you to plot an optionally annotated curly bracket between 
+two points when using matplotlib.
+
+The usual settings for line and fonts in matplotlib also applies.
+
+Change Log
+----------------------
+* **Notable changes:**
+    + Version : Added considerations for different scaled axes and log scale
+    + Version : 1.0.1
+        - First version.
+
+Reference
+----------------------
+https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation
+
+Definitions
+----------------------
+
+'''
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-def get_ax_size(fig, ax):
+def getAxSize(fig, ax):
     '''
-    # https://stackoverflow.com/questions/19306510/determine-matplotlib-axis-size-in-pixels
+    .. _getAxSize :
+
+    Get the axes size in pixels.
+
+    Parameters
+    ----------
+    fig : matplotlib figure object
+        The of the target axes.
+
+    ax : matplotlib axes object
+        The target axes.
+
+    Returns
+    -------
+    ax_width : float
+        The axes width in pixels.
+
+    ax_height : float
+        The axes height in pixels.
+
+    Reference
+    --------
+    https://stackoverflow.com/questions/19306510/determine-matplotlib-axis-size-in-pixels
     '''
 
     bbox = ax.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
@@ -20,21 +73,102 @@ def get_ax_size(fig, ax):
     ax_width *= fig.dpi
     ax_height *= fig.dpi
 
-    return ax_width, ax_height #, fig_width, fig_height
+    return ax_width, ax_height
 
-
-def curbrac(fig, ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, **kwargs):
+def curlyBrace(fig, ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, **kwargs):
     '''
+    .. _curlyBrace :
+
+    Plot an optionally annotated curly bracket on the given axes of the given figure.
+
+    Note that the brackets are anti-clockwise by default. To reverse the text position, swap
+    "p1" and "p2".
+
+    Parameters
+    ----------
+    fig : matplotlib figure object
+        The of the target axes.
+
+    ax : matplotlib axes object
+        The target axes.
+
+    p1 : two element numeric list
+        The coordinates of the starting point.
+
+    p2 : two element numeric list
+        The coordinates of the end point.
+
+    k_r : float
+        This is the gain controlling how "curvy" and "pointy" the bracket is.
+
+        Note that, if this gain is too big, the bracket would be very strange.
+
+    str_text : string
+        The annotation text of the bracket. It would displayed at the mid point
+        of bracket with the same rotation as the bracket.
+
+        By default, it follows the anti-clockwise convention. To flip it, swap 
+        the end point and the starting point.
+
+        The appearance of this string can be set by using "fontdict", which follows
+        the same syntax as the normal matplotlib syntax for font dictionary.
+
+        Default = empty string (no annotation)
+
+    int_line_num : int
+        This argument determines how many lines the string annotation is from the summit
+        of the bracket.
+
+        The distance would be affected by the font size, since it basically just a number
+        lines to the given string.
+
+        Default = 2
+
+    fontdict : dictionary
+        This is font dictionary setting the string annotation. It is the same as normal
+        matplotlib font dictionary.
+
+        Default = empty dict
+
+    **kwargs : matplotlib line setting arguments
+        This allows the user to set the line arguments using named arguments that are
+        the same as in matplotlib.
+
+    Returns
+    -------
+    theta : float
+        The bracket angle in radians.
+
+    summit : list
+        The positions of the bracket summit.
+
+    arc1 : list of lists
+        arc1 positions.
+
+    arc2 : list of lists
+        arc2 positions.
+
+    arc3 : list of lists
+        arc3 positions.
+
+    arc4 : list of lists
+        arc4 positions.
+
+
+    Reference
+    --------
+    https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation
     '''
 
     pt1 = [None, None]
     pt2 = [None, None]
 
-    ax_width, ax_height = get_ax_size(fig, ax)
+    ax_width, ax_height = getAxSize(fig, ax)
 
     ax_xlim = ax.get_xlim()
     ax_ylim = ax.get_ylim()
 
+    # log scale consideration
     if 'log' in ax.get_xaxis().get_scale():
 
         pt1[0] = np.log(p1[0])
@@ -42,8 +176,6 @@ def curbrac(fig, ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, 
         pt2[0] = np.log(p2[0])
 
         ax_xlim = np.log(ax_xlim)
-
-        # print('log')
 
     else:
 
@@ -127,12 +259,9 @@ def curbrac(fig, ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, 
     arc3y = arc3y / yscale + ax_ylim[0]
     arc4y = arc4y / yscale + ax_ylim[0]
 
+    # log scale consideration
     if 'log' in ax.get_xaxis().get_scale():
 
-        # arc1x = np.power(10, arc1x)
-        # arc2x = np.power(10, arc2x)
-        # arc3x = np.power(10, arc3x)
-        # arc4x = np.power(10, arc4x)
         arc1x = np.exp(arc1x)
         arc2x = np.exp(arc2x)
         arc3x = np.exp(arc3x)
@@ -143,11 +272,6 @@ def curbrac(fig, ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, 
         pass
 
     if 'log' in ax.get_yaxis().get_scale():
-
-        # arc1y = np.power(10, arc1y)
-        # arc2y = np.power(10, arc2y)
-        # arc3y = np.power(10, arc3y)
-        # arc4y = np.power(10, arc4y)
 
         arc1y = np.exp(arc1y)
         arc2y = np.exp(arc2y)
@@ -208,4 +332,4 @@ def curbrac(fig, ax, p1, p2, k_r=0.1, str_text='', int_line_num=2, fontdict={}, 
     arc3 = [arc3x, arc3y]
     arc4 = [arc4x, arc4y]
 
-    return theta, summit
+    return theta, summit, arc1, arc2, arc3, arc4
