@@ -1,11 +1,6 @@
 # -*- coding: utf-8 -*- 
 
 '''
-Note that you must transform the axis coordinates to screen coordinates!
-Otherwise you may not be able to see the arcs!
-'''
-
-'''
 Module Name : curbrac
 
 Author : 高斯羽 博士 (Dr. GAO, Siyu)
@@ -21,6 +16,9 @@ The function "curlyBrace" allows you to plot an optionally annotated curly brack
 two points when using matplotlib.
 
 The usual settings for line and fonts in matplotlib also applies.
+
+The function takes the axes scales into account automatically. But when the axes aspect is 
+set to "equal", the auto switch should be turned off.
 
 Change Log
 ----------------------
@@ -84,6 +82,9 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
 
     Note that the brackets are anti-clockwise by default. To reverse the text position, swap
     "p1" and "p2".
+
+    Note that, when the axes aspect is not set to "equal", the axes coordinates need to be
+    transformed to screen coordinates, otherwise the arcs may not be seeable. 
 
     Parameters
     ----------
