@@ -9,6 +9,8 @@ Last Modified : 2019-04-22
 
 This script is an example to demonstration how to use the "curlyBrace" module to 
 plot curly brackets using matplotlib.
+
+This example demonstrate annotating two sine waves with the auto scale on and off.
 '''
 
 import matplotlib.pyplot as plt
