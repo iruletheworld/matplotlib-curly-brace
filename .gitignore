@@ -3,6 +3,6 @@
 *.db
 *.png
 Makefile
-source/
+build/
 make.bat
 
