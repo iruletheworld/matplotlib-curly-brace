@@ -18,6 +18,7 @@ But the result on "symlog" is not satisfactory.
 import numpy as np
 import matplotlib.pyplot as plt
 from curlyBrace import curlyBrace
+import os
 
 # figure size and dpi
 dbl_width   = 800.0
@@ -26,15 +27,15 @@ dbl_dpi     = 100.0
 lw = 3
 
 # make data
-x = np.linspace(-100, 100, 201)
+x = np.linspace(0.1, 100, 200)
 y = 2.0 * x
 
 # points
-p1 = [-67.87, -50]
-p2 = [75.12, 151.6]
+p1 = [20, 10.69]
+p2 = [80, 151.6]
 
-p3 = [20.0, 27.58]
-p4 = [87.8, 115.95]
+# p3 = [20.0, 27.58]
+# p4 = [87.8, 115.95]
 
 # fontdict for axis title
 font = {'family': 'Arial',
@@ -51,7 +52,7 @@ axes[0].plot(x,y, lw=lw)
 axes[0].set_title('Linear Scale', fontdict=font)
 axes[0].grid(True)
 
-curlyBrace(fig, axes[0], p1, p2, k_r=0.1, str_text='Linear', int_line_num=2, color='r', lw=2)
+curlyBrace(fig, axes[0], p2, p1, k_r=0.05, str_text='Linear', int_line_num=2, color='r', lw=2)
 
 # log
 axes[1].plot(x,y, lw=lw)
@@ -59,8 +60,14 @@ axes[1].set_title('Log Scale', fontdict=font)
 axes[1].set_yscale('log')
 axes[1].grid(True)
 
-curlyBrace(fig, axes[1], p4, p3, k_r=0.1, str_text='Log', int_line_num=2, color='r', lw=2)
+curlyBrace(fig, axes[1], p2, p1, k_r=0.05, str_text='Log', int_line_num=2, color='r', lw=2)
 
-fig.suptitle('Example: Different axes scale', fontweight='bold', fontsize=20)
+fig.suptitle('Example: Log scale', fontweight='bold', fontsize=20)
+
+str_filename = os.path.basename(__file__)[:-3] + '.png'
+
+str_filename = os.path.join(os.getcwd(), str_filename)
+
+fig.savefig(str_filename, bbox_inches='tight', dpi=300)
 
 plt.show()

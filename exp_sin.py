@@ -16,6 +16,7 @@ This example demonstrate annotating two sine waves with the auto scale on and of
 import matplotlib.pyplot as plt
 import numpy as np
 from curlyBrace import curlyBrace
+# import os
 
 # figure size and dpi
 dbl_width   = 800.0
@@ -94,5 +95,11 @@ curlyBrace(fig, axes[1], p2, p1, k_r1, bool_auto=False, str_text=str_text, color
 
 # anti-clockwise, no need to swap the start point and end point
 curlyBrace(fig, axes[1], p3, p4, k_r2, bool_auto=False, str_text=str_text, color='darkgreen', lw=3, int_line_num=1, fontdict=font)
+
+# str_filename = os.path.basename(__file__)[:-3] + '.png'
+
+# str_filename = os.path.join(os.getcwd(), str_filename)
+
+# fig.savefig(str_filename, bbox_inches='tight', dpi=300)
 
 plt.show()
