@@ -1,2 +1,7 @@
 *.pyc
 .vscode/settings.json
+*.db
+*.png
+Makefile
+source/
+
