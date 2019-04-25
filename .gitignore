@@ -1,9 +1,9 @@
 *.pyc
 .vscode/settings.json
 *.db
-*.png
-Makefile
-build/
-make.bat
-source/_build/*
+# *.png
+# Makefile
+# build/
+# make.bat
+# source/_build/html/
 
