@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Curly brace for matplotlib &mdash; curlyBrace 1.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Installation and Setup" href="installation_and_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> curlyBrace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation_and_setup.html">1. Installation and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curlyBrace.html">2. Main module : curlyBrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Demonstration.html">3. Example Codes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">curlyBrace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Curly brace for matplotlib</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="curly-brace-for-matplotlib">
+<h1>Curly brace for matplotlib<a class="headerlink" href="#curly-brace-for-matplotlib" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this project is to allow easy plotting of curly brace between two points when using matplotlib.</p>
+<p>This feature is not built into matplotlib (also, not MATLAB, but there is a very good implementation on File Exchange), and thus the motivation. The author has found some previous implementations, but none would do what the author would like to do, i.e., give the function the xs and ys of two points of
+the axes and plot a curly bracket with text annotation at the summit of the bracket. Therefore, the author decided to write one.</p>
+<p>The implementation here is based largely on the implementation by <a class="reference external" href="https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation">Pål Næverlid Sævik</a> for MATLAB (can be found on File Exchange). Some modifications are done for Python purposes. Some addition features have been implemented, e.g., allow text annotation, negative log (for ‘symlog’ scale in matplotlib).</p>
+<p>This project is built with Python 3.7.1, matplolib 2.2.3 and numpy 1.15.4.</p>
+<p>Tested on Windows 7.</p>
+</div>
+<div class="section" id="main-features">
+<h1>Main features<a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><strong>Allows intuitive plotting of a curly bracket between two points within the given axes of the given figure</strong></li>
+<li><strong>Allows text annotation to be placed at the summit of the bracket with the same rotation as the bracket</strong></li>
+<li><strong>The height of the bracket can be controlled</strong></li>
+<li><strong>Accepts line settings for the bracket lines (same as matplotlib via named parameters, e.g., line width, line colour, etc.)</strong></li>
+<li><strong>Accepts font settings of the annotating text (same as matplotlib, just give a fontdict)</strong></li>
+<li><strong>Works with linear axes and log axes</strong></li>
+<li><strong>Transformation between axes coordinates and screen coordinates can be turned on or off</strong></li>
+</ul>
+<p>The following is an example of plotting two curly brackets to annotate a sine wave.</p>
+<div class="figure">
+<img alt="example" src="_images/exp.jpg" />
+</div>
+</div>
+<div class="section" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation_and_setup.html">1. Installation and Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation_and_setup.html#prerequisites">1.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_and_setup.html#installation">1.2. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_and_setup.html#built-with">1.3. Built With</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_and_setup.html#contributing">1.4. Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_and_setup.html#version-control">1.5. Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_and_setup.html#license">1.6. License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_and_setup.html#acknowledgments">1.7. Acknowledgments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_and_setup.html#p-s">1.8. P.S.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="curlyBrace.html">2. Main module : curlyBrace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="curlyBrace.html#change-log">2.1. Change Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlyBrace.html#reference">2.2. Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlyBrace.html#list-of-functions">2.3. List of functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Demonstration.html">3. Example Codes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Demonstration.html#annotating-a-sine-wave">3.1. Annotating a sine wave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Demonstration.html#annotating-two-circles">3.2. Annotating two circles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Demonstration.html#annotating-two-ellipses">3.3. Annotating two ellipses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Demonstration.html#annotating-two-astroids">3.4. Annotating two astroids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Demonstration.html#annotating-linear-axes-with-log-axes">3.5. Annotating linear axes with log axes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation_and_setup.html" class="btn btn-neutral float-right" title="1. Installation and Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Dr. Gao, Siyu
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

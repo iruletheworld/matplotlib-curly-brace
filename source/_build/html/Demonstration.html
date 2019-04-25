@@ -1,0 +1,1401 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Example Codes &mdash; curlyBrace 1.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. The Algorithm" href="Algorithm.html" />
+    <link rel="prev" title="2. Main module : curlyBrace" href="curlyBrace.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> curlyBrace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation_and_setup.html">1. Installation and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curlyBrace.html">2. Main module : curlyBrace</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Example Codes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#annotating-a-sine-wave">3.1. Annotating a sine wave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotating-two-circles">3.2. Annotating two circles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotating-two-ellipses">3.3. Annotating two ellipses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotating-two-astroids">3.4. Annotating two astroids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#annotating-linear-axes-with-log-axes">3.5. Annotating linear axes with log axes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm.html">4. The Algorithm</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">curlyBrace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>3. Example Codes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Demonstration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="example-codes">
+<h1>3. Example Codes<a class="headerlink" href="#example-codes" title="Permalink to this headline">¶</a></h1>
+<p>The following are some examples showing what this module is capable of.</p>
+<div class="section" id="annotating-a-sine-wave">
+<h2>3.1. Annotating a sine wave<a class="headerlink" href="#annotating-a-sine-wave" title="Permalink to this headline">¶</a></h2>
+<p>In this example, since the axes are not “equal”, the auto scale should be on.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/exp_sin.png"><img alt="Sine wave example" src="_images/exp_sin.png" style="width: 503.5px; height: 515.5px;" /></a>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*- </span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Author : 高斯羽 博士 (Dr. GAO, Siyu)</span>
+
+<span class="sd">Version : 1.0.0</span>
+
+<span class="sd">Last Modified : 2019-04-22</span>
+
+<span class="sd">This script is an example to demonstration how to use the &quot;curlyBrace&quot; module to plot curly brackets using matplotlib.</span>
+
+<span class="sd">This example demonstrate annotating two sine waves with the auto scale on and off.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">curlyBrace</span> <span class="kn">import</span> <span class="n">curlyBrace</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># save fig control</span>
+<span class="n">bool_savefig</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># figure size and dpi</span>
+<span class="n">dbl_width</span>   <span class="o">=</span> <span class="mf">800.0</span>
+<span class="n">dbl_height</span>  <span class="o">=</span> <span class="mf">800.0</span>
+<span class="n">dbl_dpi</span>     <span class="o">=</span> <span class="mf">100.0</span>
+
+<span class="c1"># line width and colour for the sine wave</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">color</span><span class="o">=</span><span class="s1">&#39;royalblue&#39;</span>
+
+<span class="c1"># plot the sine wave</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">theta</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="mf">8.0</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">dbl_width</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">,</span> <span class="n">dbl_width</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dbl_dpi</span><span class="p">)</span>
+
+<span class="c1"># fontdict for axis title</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span>  <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<span class="c1"># aixs title string</span>
+<span class="n">str_title</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+
+<span class="n">str_title</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Example: Different axes scales, auto scale on&#39;</span>
+<span class="n">str_title</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Example: Different axes scales, auto scale off&#39;</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">str_title</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">str_title</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="c1"># curly bracket 1 start point and end point</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+
+<span class="c1"># curly bracket 2 start point and end point</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+
+<span class="c1"># fontdict for curly bracket 1 text</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;serif&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span>  <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;italic&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<span class="c1"># curly brack text</span>
+<span class="n">str_text</span> <span class="o">=</span> <span class="s1">&#39;$\pi$&#39;</span>
+
+<span class="c1"># coefficient for curly bracket 1</span>
+<span class="n">k_r1</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="c1"># coefficient for curly bracket 2</span>
+<span class="n">k_r2</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># clockwise, need to swap the start point and end point</span>
+<span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">k_r1</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="c1"># anti-clockwise, no need to swap the start point and end point</span>
+<span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">k_r2</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="c1"># clockwise, need to swap the start point and end point</span>
+<span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">k_r1</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="c1"># anti-clockwise, no need to swap the start point and end point</span>
+<span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">k_r2</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="c1"># save fig</span>
+<span class="k">if</span> <span class="n">bool_savefig</span><span class="p">:</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">str_filename</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">str_filename</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="k">pass</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="annotating-two-circles">
+<h2>3.2. Annotating two circles<a class="headerlink" href="#annotating-two-circles" title="Permalink to this headline">¶</a></h2>
+<p>The annotation text follows an “aniti-clockwise” convention for its location. To flip it, swap the start point and the end point. Also, since the axes are “equal” in this example, auto scale should be off.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/exp_circle.png"><img alt="Cirle example" src="_images/exp_circle.png" style="width: 345.25px; height: 671.25px;" /></a>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*- </span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Author : 高斯羽 博士 (Dr. GAO, Siyu)</span>
+
+<span class="sd">Version : 1.0.0</span>
+
+<span class="sd">Last Modified : 2019-04-22</span>
+
+<span class="sd">This script is an example to demonstration how to use the &quot;curlyBrace&quot; module to </span>
+<span class="sd">plot curly brackets using matplotlib.</span>
+
+<span class="sd">This example demonstrate annotating two pairs of concentrate circles with the auto scale off.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">curlyBrace</span> <span class="kn">import</span> <span class="n">curlyBrace</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># fig save control</span>
+<span class="n">bool_savefig</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># figure size and dpi</span>
+<span class="n">dbl_width</span>   <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="n">dbl_height</span>  <span class="o">=</span> <span class="mf">1080.0</span>
+<span class="n">dbl_dpi</span>     <span class="o">=</span> <span class="mf">100.0</span>
+
+<span class="c1"># line width and colour for the circles</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">color</span><span class="o">=</span><span class="s1">&#39;royalblue&#39;</span>
+
+<span class="c1"># plot the two concentrate circles</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+
+<span class="c1"># the radius for the circles</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="mf">15.0</span>
+
+<span class="c1"># the points of the circles</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="n">x2</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">dbl_width</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">,</span> <span class="n">dbl_height</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dbl_dpi</span><span class="p">)</span>
+
+<span class="c1"># fontdict for axis titles</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span>  <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<span class="n">str_title1</span> <span class="o">=</span> <span class="s1">&#39;Example: Anti-Clockwise, equal aspect, auto scale off&#39;</span>
+<span class="n">str_title2</span> <span class="o">=</span> <span class="s1">&#39;Example: Clockwise, equal aspect, auto scale off&#39;</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">str_title1</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">str_title2</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="c1"># bracket coefficient</span>
+<span class="n">k_r</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># points for the brackets</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+
+<span class="n">x2</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+
+<span class="c1"># fontdict for the brackets</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;serif&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span>  <span class="s1">&#39;darkred&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)):</span>
+
+    <span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="n">str_text</span> <span class="o">=</span> <span class="s1">&#39;Circle</span><span class="se">\n</span><span class="s1">anti-clockwise&#39;</span>
+
+    <span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">k_r</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)):</span>
+
+    <span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="n">str_text</span> <span class="o">=</span> <span class="s1">&#39;Circle</span><span class="se">\n</span><span class="s1">clockwise&#39;</span>
+
+    <span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">k_r</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">bool_savefig</span><span class="p">:</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">str_filename</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">str_filename</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="k">pass</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="annotating-two-ellipses">
+<h2>3.3. Annotating two ellipses<a class="headerlink" href="#annotating-two-ellipses" title="Permalink to this headline">¶</a></h2>
+<p>Similar to the circle example, but this time demonstrates not “equal” axes and “equal” axes. You should be able to that see the summits of the brackets in the second subplot are kinda warpped.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/exp_ellipse.png"><img alt="Ellipse example" src="_images/exp_ellipse.png" style="width: 372.5px; height: 625.0px;" /></a>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*- </span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Author : 高斯羽 博士 (Dr. GAO, Siyu)</span>
+
+<span class="sd">Version : 1.0.0</span>
+
+<span class="sd">Last Modified : 2019-04-22</span>
+
+<span class="sd">This script is an example to demonstration how to use the &quot;curlyBrace&quot; module to </span>
+<span class="sd">plot curly brackets using matplotlib.</span>
+
+<span class="sd">This example demonstrate annotating two pairs of ellipses.</span>
+
+<span class="sd">The parametric equation of ellipse can be found:</span>
+<span class="sd">https://stackoverflow.com/questions/10952060/plot-ellipse-with-matplotlib-pyplot-python</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">curlyBrace</span> <span class="kn">import</span> <span class="n">curlyBrace</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># fig save control</span>
+<span class="n">bool_savefig</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># figure size and dpi</span>
+<span class="n">dbl_width</span>   <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="n">dbl_height</span>  <span class="o">=</span> <span class="mf">800.0</span>
+<span class="n">dbl_dpi</span>     <span class="o">=</span> <span class="mf">100.0</span>
+
+<span class="c1"># line width and colour for the ellipses</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">color</span><span class="o">=</span><span class="s1">&#39;royalblue&#39;</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># x-position of the centre</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># y-position of the centre</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># radius on the x-axis for ellipse 1</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="mf">1.5</span>  <span class="c1"># radius on the y-axis for ellipse 1</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="mf">7.0</span>  <span class="c1"># radius on the x-axis for ellipse 2</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="mf">5.5</span>  <span class="c1"># radius on the y-axis for ellipse 2</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">b1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">a2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">dbl_width</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">,</span> <span class="n">dbl_width</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dbl_dpi</span><span class="p">)</span>
+
+<span class="c1"># fontdict for axis titles</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span>  <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<span class="n">str_title1</span> <span class="o">=</span> <span class="s1">&#39;Example: Axes aspect equal, auto scale off&#39;</span>
+<span class="n">str_title2</span> <span class="o">=</span> <span class="s1">&#39;Example: Axes aspect equal, auto scale on&#39;</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">str_title1</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">str_title2</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="c1"># bracket coefficient</span>
+<span class="n">k_r</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># points for the brackets</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">b1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">a2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
+
+<span class="c1"># fontdict for the brackets</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;serif&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span>  <span class="s1">&#39;darkred&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<span class="c1"># bracket line width and colour</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">color1</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
+<span class="n">color2</span> <span class="o">=</span> <span class="s1">&#39;darkorange&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)):</span>
+
+    <span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="n">str_text</span> <span class="o">=</span> <span class="s1">&#39;Epllise</span><span class="se">\n</span><span class="s1">anti-clockwise&#39;</span>
+
+    <span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">k_r</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)):</span>
+
+    <span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="n">str_text</span> <span class="o">=</span> <span class="s1">&#39;Epllise</span><span class="se">\n</span><span class="s1">clockwise&#39;</span>
+
+    <span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">k_r</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">bool_savefig</span><span class="p">:</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">str_filename</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">str_filename</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="k">pass</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="annotating-two-astroids">
+<h2>3.4. Annotating two astroids<a class="headerlink" href="#annotating-two-astroids" title="Permalink to this headline">¶</a></h2>
+<p>Similar to the ellipse example, but this time demonstrates what would happen when the axes are “equal” but auto scale is on.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/exp_astroid.png"><img alt="Astroid example" src="_images/exp_astroid.png" style="width: 626.25px; height: 625.0px;" /></a>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*- </span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Author : 高斯羽 博士 (Dr. GAO, Siyu)</span>
+
+<span class="sd">Version : 1.0.0</span>
+
+<span class="sd">Last Modified : 2019-04-22</span>
+
+<span class="sd">This script is an example to demonstration how to use the &quot;curlyBrace&quot; module to </span>
+<span class="sd">plot curly brackets using matplotlib.</span>
+
+<span class="sd">This example demonstrate annotating two pairs of astroids.</span>
+
+<span class="sd">The parametric equation of astroid can be found:</span>
+<span class="sd">http://jwilson.coe.uga.edu/EMAT6680Fa2014/Gieseking/Exploration%2010/Parametric%20Equations.html</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">curlyBrace</span> <span class="kn">import</span> <span class="n">curlyBrace</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># fig save control</span>
+<span class="n">bool_savefig</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># figure size and dpi</span>
+<span class="n">dbl_width</span>   <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="n">dbl_height</span>  <span class="o">=</span> <span class="mf">800.0</span>
+<span class="n">dbl_dpi</span>     <span class="o">=</span> <span class="mf">100.0</span>
+
+<span class="c1"># line width and colour for the astroids</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">color</span><span class="o">=</span><span class="s1">&#39;royalblue&#39;</span>
+
+<span class="n">r1</span> <span class="o">=</span> <span class="mf">5.0</span>    <span class="c1"># radius 1</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="mf">20.0</span>   <span class="c1"># radius 2</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+
+<span class="c1"># calculate the points of the two astroids</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># fontdict for axis titles</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span>  <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<span class="n">str_title1</span> <span class="o">=</span> <span class="s1">&#39;Example: Not &quot;equal&quot; axes aspect, auto scale on&#39;</span>
+<span class="n">str_title2</span> <span class="o">=</span> <span class="s1">&#39;Example: &quot;Equal&quot; axes aspect, auto scale off&#39;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">dbl_width</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">,</span> <span class="n">dbl_width</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dbl_dpi</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="c1"># axes[0].set_aspect(&#39;equal&#39;, &#39;box&#39;)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">str_title1</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">str_title2</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="c1"># bracket coefficient</span>
+<span class="n">k_r</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># points for the brackets</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># fontdict for the brackets</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;serif&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span>  <span class="s1">&#39;darkred&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="p">}</span>
+
+<span class="c1"># bracket line width and colour</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">color1</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
+<span class="n">color2</span> <span class="o">=</span> <span class="s1">&#39;darkorange&#39;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)):</span>
+
+    <span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="n">str_text</span> <span class="o">=</span> <span class="s1">&#39;Astroid</span><span class="se">\n</span><span class="s1">anti-clockwise&#39;</span>
+
+    <span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">k_r</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x1</span><span class="p">)):</span>
+
+    <span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y2</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="n">str_text</span> <span class="o">=</span> <span class="s1">&#39;Astroid</span><span class="se">\n</span><span class="s1">clockwise&#39;</span>
+
+    <span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">k_r</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="n">str_text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">bool_savefig</span><span class="p">:</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">str_filename</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">str_filename</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="k">pass</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="annotating-linear-axes-with-log-axes">
+<h2>3.5. Annotating linear axes with log axes<a class="headerlink" href="#annotating-linear-axes-with-log-axes" title="Permalink to this headline">¶</a></h2>
+<p>This example shows that this module also works with log scale. The starting point and the end point are the same in the two subplots.</p>
+<p>P.S. The really difficult thing to work around is the “symlog” scale. Not because it could have negative log, but because part of it is log while part of it is linear. This breaks the transformation. I hope you don’t need to use curly brackets on symlog. If you have a good solution, please let me know.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/exp_log.png"><img alt="Log example" src="_images/exp_log.png" style="width: 508.0px; height: 554.25px;" /></a>
+</div>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*- </span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Author : 高斯羽 博士 (Dr. GAO, Siyu)</span>
+
+<span class="sd">Version : 1.0.0</span>
+
+<span class="sd">Last Modified : 2019-04-22</span>
+
+<span class="sd">This script is an example to demonstration how to use the &quot;curlyBrace&quot; module to </span>
+<span class="sd">plot curly brackets using matplotlib.</span>
+
+<span class="sd">This example demonstrate the function works on log scale as well.</span>
+
+<span class="sd">But the result on &quot;symlog&quot; is not satisfactory.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">curlyBrace</span> <span class="kn">import</span> <span class="n">curlyBrace</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># fig save control</span>
+<span class="n">bool_savefig</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># figure size and dpi</span>
+<span class="n">dbl_width</span>   <span class="o">=</span> <span class="mf">800.0</span>
+<span class="n">dbl_height</span>  <span class="o">=</span> <span class="mf">800.0</span>
+<span class="n">dbl_dpi</span>     <span class="o">=</span> <span class="mf">100.0</span>
+<span class="n">lw</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># make data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="c1"># points</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mf">10.69</span><span class="p">]</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mf">151.6</span><span class="p">]</span>
+
+<span class="c1"># p3 = [20.0, 27.58]</span>
+<span class="c1"># p4 = [87.8, 115.95]</span>
+
+<span class="c1"># fontdict for axis title</span>
+<span class="n">font</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span>  <span class="s1">&#39;k&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">14</span>
+        <span class="p">}</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">dbl_width</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">,</span> <span class="n">dbl_width</span> <span class="o">/</span> <span class="n">dbl_dpi</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dbl_dpi</span><span class="p">)</span>
+
+<span class="c1"># linear</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Linear Scale&#39;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">k_r</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="s1">&#39;Linear&#39;</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># log</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Log Scale&#39;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">k_r</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="s1">&#39;Log&#39;</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Example: Log scale&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">bool_savefig</span><span class="p">:</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>
+
+    <span class="n">str_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">str_filename</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">str_filename</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+
+    <span class="k">pass</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Algorithm.html" class="btn btn-neutral float-right" title="4. The Algorithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="curlyBrace.html" class="btn btn-neutral float-left" title="2. Main module : curlyBrace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Dr. Gao, Siyu
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

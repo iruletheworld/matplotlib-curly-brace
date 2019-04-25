@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>curlyBrace &mdash; curlyBrace 1.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> curlyBrace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation_and_setup.html">1. Installation and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../curlyBrace.html">2. Main module : curlyBrace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Demonstration.html">3. Example Codes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">curlyBrace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>curlyBrace</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for curlyBrace</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*- </span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Module Name : curlyBrace</span>
+
+<span class="sd">Author : 高斯羽 博士 (Dr. GAO, Siyu)</span>
+
+<span class="sd">Version : 1.0.2</span>
+
+<span class="sd">Last Modified : 2019-04-22</span>
+
+<span class="sd">This module is basically an Python implementation of the function written Pål Næverlid Sævik</span>
+<span class="sd">for MATLAB (link in Reference).</span>
+
+<span class="sd">The function &quot;curlyBrace&quot; allows you to plot an optionally annotated curly bracket between </span>
+<span class="sd">two points when using matplotlib.</span>
+
+<span class="sd">The usual settings for line and fonts in matplotlib also apply.</span>
+
+<span class="sd">The function takes the axes scales into account automatically. But when the axes aspect is </span>
+<span class="sd">set to &quot;equal&quot;, the auto switch should be turned off.</span>
+
+<span class="sd">Change Log</span>
+<span class="sd">----------------------</span>
+<span class="sd">* **Notable changes:**</span>
+<span class="sd">    + Version : 1.0.2</span>
+<span class="sd">        - Added considerations for different scaled axes and log scale</span>
+<span class="sd">    + Version : 1.0.1</span>
+<span class="sd">        - First version.</span>
+
+<span class="sd">Reference</span>
+<span class="sd">----------------------</span>
+<span class="sd">https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation</span>
+
+<span class="sd">List of functions</span>
+<span class="sd">----------------------</span>
+
+<span class="sd">* getAxSize_</span>
+<span class="sd">* curlyBrace_</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<div class="viewcode-block" id="getAxSize"><a class="viewcode-back" href="../curlyBrace.html#curlyBrace.getAxSize">[docs]</a><span class="k">def</span> <span class="nf">getAxSize</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    .. _getAxSize :</span>
+
+<span class="sd">    Get the axes size in pixels.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig : matplotlib figure object</span>
+<span class="sd">        The of the target axes.</span>
+
+<span class="sd">    ax : matplotlib axes object</span>
+<span class="sd">        The target axes.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ax_width : float</span>
+<span class="sd">        The axes width in pixels.</span>
+
+<span class="sd">    ax_height : float</span>
+<span class="sd">        The axes height in pixels.</span>
+
+<span class="sd">    Reference</span>
+<span class="sd">    -----------</span>
+<span class="sd">    https://stackoverflow.com/questions/19306510/determine-matplotlib-axis-size-in-pixels</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">bbox</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">()</span><span class="o">.</span><span class="n">transformed</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">dpi_scale_trans</span><span class="o">.</span><span class="n">inverted</span><span class="p">())</span>
+    <span class="n">ax_width</span><span class="p">,</span> <span class="n">ax_height</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">bbox</span><span class="o">.</span><span class="n">height</span>
+    <span class="n">ax_width</span> <span class="o">*=</span> <span class="n">fig</span><span class="o">.</span><span class="n">dpi</span>
+    <span class="n">ax_height</span> <span class="o">*=</span> <span class="n">fig</span><span class="o">.</span><span class="n">dpi</span>
+
+    <span class="k">return</span> <span class="n">ax_width</span><span class="p">,</span> <span class="n">ax_height</span></div>
+
+<div class="viewcode-block" id="curlyBrace"><a class="viewcode-back" href="../curlyBrace.html#curlyBrace.curlyBrace">[docs]</a><span class="k">def</span> <span class="nf">curlyBrace</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">k_r</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">bool_auto</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">str_text</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">int_line_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{},</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="c1"># def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text=&#39;&#39;, int_line_num=2, fontdict={}, **kwargs):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    .. _curlyBrace :</span>
+
+<span class="sd">    Plot an optionally annotated curly bracket on the given axes of the given figure.</span>
+
+<span class="sd">    Note that the brackets are anti-clockwise by default. To reverse the text position, swap</span>
+<span class="sd">    &quot;p1&quot; and &quot;p2&quot;.</span>
+
+<span class="sd">    Note that, when the axes aspect is not set to &quot;equal&quot;, the axes coordinates need to be</span>
+<span class="sd">    transformed to screen coordinates, otherwise the arcs may not be seeable. </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig : matplotlib figure object</span>
+<span class="sd">        The of the target axes.</span>
+
+<span class="sd">    ax : matplotlib axes object</span>
+<span class="sd">        The target axes.</span>
+
+<span class="sd">    p1 : two element numeric list</span>
+<span class="sd">        The coordinates of the starting point.</span>
+
+<span class="sd">    p2 : two element numeric list</span>
+<span class="sd">        The coordinates of the end point.</span>
+
+<span class="sd">    k_r : float</span>
+<span class="sd">        This is the gain controlling how &quot;curvy&quot; and &quot;pointy&quot; (height) the bracket is.</span>
+
+<span class="sd">        Note that, if this gain is too big, the bracket would be very strange.</span>
+
+<span class="sd">    bool_auto : boolean</span>
+<span class="sd">        This is a switch controlling wether to use the auto calculation of axes</span>
+<span class="sd">        scales.</span>
+
+<span class="sd">        When the two axes do not have the same aspects, i.e., not &quot;equal&quot; scales,</span>
+<span class="sd">        this should be turned on, i.e., True.</span>
+
+<span class="sd">        When &quot;equal&quot; aspect is used, this should be turned off, i.e., False.</span>
+
+<span class="sd">        If you do not set this to False when setting the axes aspect to &quot;equal&quot;,</span>
+<span class="sd">        the bracket will be in funny shape.</span>
+
+<span class="sd">        Default = True</span>
+
+<span class="sd">    str_text : string</span>
+<span class="sd">        The annotation text of the bracket. It would displayed at the mid point</span>
+<span class="sd">        of bracket with the same rotation as the bracket.</span>
+
+<span class="sd">        By default, it follows the anti-clockwise convention. To flip it, swap </span>
+<span class="sd">        the end point and the starting point.</span>
+
+<span class="sd">        The appearance of this string can be set by using &quot;fontdict&quot;, which follows</span>
+<span class="sd">        the same syntax as the normal matplotlib syntax for font dictionary.</span>
+
+<span class="sd">        Default = empty string (no annotation)</span>
+
+<span class="sd">    int_line_num : int</span>
+<span class="sd">        This argument determines how many lines the string annotation is from the summit</span>
+<span class="sd">        of the bracket.</span>
+
+<span class="sd">        The distance would be affected by the font size, since it basically just a number of</span>
+<span class="sd">        lines appended to the given string.</span>
+
+<span class="sd">        Default = 2</span>
+
+<span class="sd">    fontdict : dictionary</span>
+<span class="sd">        This is font dictionary setting the string annotation. It is the same as normal</span>
+<span class="sd">        matplotlib font dictionary.</span>
+
+<span class="sd">        Default = empty dict</span>
+
+<span class="sd">    **kwargs : matplotlib line setting arguments</span>
+<span class="sd">        This allows the user to set the line arguments using named arguments that are</span>
+<span class="sd">        the same as in matplotlib.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    theta : float</span>
+<span class="sd">        The bracket angle in radians.</span>
+
+<span class="sd">    summit : list</span>
+<span class="sd">        The positions of the bracket summit.</span>
+
+<span class="sd">    arc1 : list of lists</span>
+<span class="sd">        arc1 positions.</span>
+
+<span class="sd">    arc2 : list of lists</span>
+<span class="sd">        arc2 positions.</span>
+
+<span class="sd">    arc3 : list of lists</span>
+<span class="sd">        arc3 positions.</span>
+
+<span class="sd">    arc4 : list of lists</span>
+<span class="sd">        arc4 positions.</span>
+
+<span class="sd">    Reference</span>
+<span class="sd">    ----------</span>
+<span class="sd">    https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">pt1</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">pt2</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+
+    <span class="n">ax_width</span><span class="p">,</span> <span class="n">ax_height</span> <span class="o">=</span> <span class="n">getAxSize</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+
+    <span class="n">ax_xlim</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">())</span>
+    <span class="n">ax_ylim</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">())</span>
+
+    <span class="c1"># log scale consideration</span>
+    <span class="k">if</span> <span class="s1">&#39;log&#39;</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_scale</span><span class="p">():</span>
+
+        <span class="k">if</span> <span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+            <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+            <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">if</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+            <span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+            <span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ax_xlim</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">ax_xlim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">ax_xlim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ax_xlim</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">ax_xlim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">ax_xlim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">ax_xlim</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">ax_xlim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;log&#39;</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_scale</span><span class="p">():</span>
+
+        <span class="k">if</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+            <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+            <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">if</span> <span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+            <span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+            <span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ax_ylim</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">ax_ylim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">ax_ylim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ax_ylim</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">ax_ylim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">ax_ylim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">ax_ylim</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">ax_ylim</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># get the ratio of pixels/length</span>
+    <span class="n">xscale</span> <span class="o">=</span> <span class="n">ax_width</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ax_xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ax_xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">yscale</span> <span class="o">=</span> <span class="n">ax_height</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ax_ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ax_ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># this is to deal with &#39;equal&#39; axes aspects</span>
+    <span class="k">if</span> <span class="n">bool_auto</span><span class="p">:</span>
+
+        <span class="k">pass</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">xscale</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">yscale</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="c1"># convert length to pixels, </span>
+    <span class="c1"># need to minus the lower limit to move the points back to the origin. Then add the limits back on end.</span>
+    <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">ax_xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">xscale</span>
+    <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ax_ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">yscale</span>
+    <span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">ax_xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">xscale</span>
+    <span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ax_ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">yscale</span>
+
+    <span class="c1"># calculate the angle</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># calculate the radius of the arcs</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">k_r</span>
+
+    <span class="c1"># arc1 centre</span>
+    <span class="n">x11</span> <span class="o">=</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y11</span> <span class="o">=</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+    <span class="c1"># arc2 centre</span>
+    <span class="n">x22</span> <span class="o">=</span> <span class="p">(</span><span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y22</span> <span class="o">=</span> <span class="p">(</span><span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+    <span class="c1"># arc3 centre</span>
+    <span class="n">x33</span> <span class="o">=</span> <span class="p">(</span><span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y33</span> <span class="o">=</span> <span class="p">(</span><span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pt1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+    <span class="c1"># arc4 centre</span>
+    <span class="n">x44</span> <span class="o">=</span> <span class="n">pt2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y44</span> <span class="o">=</span> <span class="n">pt2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+    <span class="c1"># prepare the rotated</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+    <span class="c1"># reverse q</span>
+    <span class="c1"># t = np.flip(q) # this command is not supported by lower version of numpy</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">q</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># arc coordinates</span>
+    <span class="n">arc1x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">x11</span>
+    <span class="n">arc1y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">y11</span>
+
+    <span class="n">arc2x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">x22</span>
+    <span class="n">arc2y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">y22</span>
+
+    <span class="n">arc3x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">q</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">+</span> <span class="n">x33</span>
+    <span class="n">arc3y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">+</span> <span class="n">y33</span>
+
+    <span class="n">arc4x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">x44</span>
+    <span class="n">arc4y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">y44</span>
+
+    <span class="c1"># convert back to the axis coordinates</span>
+    <span class="n">arc1x</span> <span class="o">=</span> <span class="n">arc1x</span> <span class="o">/</span> <span class="n">xscale</span> <span class="o">+</span> <span class="n">ax_xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">arc2x</span> <span class="o">=</span> <span class="n">arc2x</span> <span class="o">/</span> <span class="n">xscale</span> <span class="o">+</span> <span class="n">ax_xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">arc3x</span> <span class="o">=</span> <span class="n">arc3x</span> <span class="o">/</span> <span class="n">xscale</span> <span class="o">+</span> <span class="n">ax_xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">arc4x</span> <span class="o">=</span> <span class="n">arc4x</span> <span class="o">/</span> <span class="n">xscale</span> <span class="o">+</span> <span class="n">ax_xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">arc1y</span> <span class="o">=</span> <span class="n">arc1y</span> <span class="o">/</span> <span class="n">yscale</span> <span class="o">+</span> <span class="n">ax_ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">arc2y</span> <span class="o">=</span> <span class="n">arc2y</span> <span class="o">/</span> <span class="n">yscale</span> <span class="o">+</span> <span class="n">ax_ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">arc3y</span> <span class="o">=</span> <span class="n">arc3y</span> <span class="o">/</span> <span class="n">yscale</span> <span class="o">+</span> <span class="n">ax_ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">arc4y</span> <span class="o">=</span> <span class="n">arc4y</span> <span class="o">/</span> <span class="n">yscale</span> <span class="o">+</span> <span class="n">ax_ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># log scale consideration</span>
+    <span class="k">if</span> <span class="s1">&#39;log&#39;</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_scale</span><span class="p">():</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arc1x</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">arc1x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc1x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arc1x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">arc1x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc1x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arc1x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">arc1x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arc2x</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">arc2x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc2x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arc2x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">arc2x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc2x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arc2x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">arc2x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arc3x</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">arc3x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc3x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arc3x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">arc3x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc3x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arc3x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">arc3x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arc4x</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">arc4x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc4x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arc4x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">arc4x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc4x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arc4x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">arc4x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="k">pass</span>
+
+    <span class="k">if</span> <span class="s1">&#39;log&#39;</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">get_scale</span><span class="p">():</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arc1y</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">arc1y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc1y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arc1y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">arc1y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc1y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arc1y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">arc1y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arc2y</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">arc2y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc2y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arc2y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">arc2y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc2y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arc2y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">arc2y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arc3y</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">arc3y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc3y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arc3y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">arc3y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc3y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arc3y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">arc3y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arc4y</span><span class="p">)):</span>
+
+            <span class="k">if</span> <span class="n">arc4y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc4y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">arc4y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">arc4y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+                <span class="n">arc4y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">arc4y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">arc4y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="k">pass</span>
+
+    <span class="c1"># plot arcs</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arc1x</span><span class="p">,</span> <span class="n">arc1y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arc2x</span><span class="p">,</span> <span class="n">arc2y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arc3x</span><span class="p">,</span> <span class="n">arc3y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arc4x</span><span class="p">,</span> <span class="n">arc4y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># plot lines</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">arc1x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">arc2x</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">arc1y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">arc2y</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">arc3x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">arc4x</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">arc3y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">arc4y</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="n">summit</span> <span class="o">=</span> <span class="p">[</span><span class="n">arc2x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">arc2y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="k">if</span> <span class="n">str_text</span><span class="p">:</span>
+
+        <span class="n">int_line_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">int_line_num</span><span class="p">)</span>
+
+        <span class="n">str_temp</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="n">int_line_num</span>
+        
+        <span class="c1"># convert radians to degree and within 0 to 360</span>
+        <span class="n">ang</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">%</span> <span class="mf">360.0</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">ang</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ang</span> <span class="o">&lt;=</span> <span class="mf">90.0</span><span class="p">):</span>
+
+            <span class="n">rotation</span> <span class="o">=</span> <span class="n">ang</span>
+
+            <span class="n">str_text</span> <span class="o">=</span> <span class="n">str_text</span> <span class="o">+</span> <span class="n">str_temp</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">ang</span> <span class="o">&gt;</span> <span class="mf">90.0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ang</span> <span class="o">&lt;</span> <span class="mf">270.0</span><span class="p">):</span>
+
+            <span class="n">rotation</span> <span class="o">=</span> <span class="n">ang</span> <span class="o">+</span> <span class="mf">180.0</span>
+
+            <span class="n">str_text</span> <span class="o">=</span> <span class="n">str_temp</span> <span class="o">+</span> <span class="n">str_text</span>
+
+        <span class="k">elif</span> <span class="p">(</span><span class="n">ang</span> <span class="o">&gt;=</span> <span class="mf">270.0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ang</span> <span class="o">&lt;=</span> <span class="mf">360.0</span><span class="p">):</span>
+
+            <span class="n">rotation</span> <span class="o">=</span> <span class="n">ang</span>
+
+            <span class="n">str_text</span> <span class="o">=</span> <span class="n">str_text</span> <span class="o">+</span> <span class="n">str_temp</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">rotation</span> <span class="o">=</span> <span class="n">ang</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">arc2x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">arc2y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">str_text</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="n">rotation</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="n">fontdict</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="k">pass</span>
+
+    <span class="n">arc1</span> <span class="o">=</span> <span class="p">[</span><span class="n">arc1x</span><span class="p">,</span> <span class="n">arc1y</span><span class="p">]</span>
+    <span class="n">arc2</span> <span class="o">=</span> <span class="p">[</span><span class="n">arc2x</span><span class="p">,</span> <span class="n">arc2y</span><span class="p">]</span>
+    <span class="n">arc3</span> <span class="o">=</span> <span class="p">[</span><span class="n">arc3x</span><span class="p">,</span> <span class="n">arc3y</span><span class="p">]</span>
+    <span class="n">arc4</span> <span class="o">=</span> <span class="p">[</span><span class="n">arc4x</span><span class="p">,</span> <span class="n">arc4y</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">theta</span><span class="p">,</span> <span class="n">summit</span><span class="p">,</span> <span class="n">arc1</span><span class="p">,</span> <span class="n">arc2</span><span class="p">,</span> <span class="n">arc3</span><span class="p">,</span> <span class="n">arc4</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Dr. Gao, Siyu
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

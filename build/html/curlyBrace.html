@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Main module : curlyBrace &mdash; curlyBrace 1.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Example Codes" href="Demonstration.html" />
+    <link rel="prev" title="1. Installation and Setup" href="installation_and_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> curlyBrace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation_and_setup.html">1. Installation and Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Main module : curlyBrace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#change-log">2.1. Change Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">2.2. Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-functions">2.3. List of functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Demonstration.html">3. Example Codes</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">curlyBrace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>2. Main module : curlyBrace</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/curlyBrace.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-curlyBrace">
+<span id="main-module-curlybrace"></span><h1>2. Main module : curlyBrace<a class="headerlink" href="#module-curlyBrace" title="Permalink to this headline">¶</a></h1>
+<p>Module Name : curlyBrace</p>
+<p>Author : 高斯羽 博士 (Dr. GAO, Siyu)</p>
+<p>Version : 1.0.2</p>
+<p>Last Modified : 2019-04-22</p>
+<p>This module is basically an Python implementation of the function written Pål Næverlid Sævik
+for MATLAB (link in Reference).</p>
+<p>The function “curlyBrace” allows you to plot an optionally annotated curly bracket between 
+two points when using matplotlib.</p>
+<p>The usual settings for line and fonts in matplotlib also apply.</p>
+<p>The function takes the axes scales into account automatically. But when the axes aspect is 
+set to “equal”, the auto switch should be turned off.</p>
+<div class="section" id="change-log">
+<h2>2.1. Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Notable changes:</strong></dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Version <span class="classifier-delimiter">:</span> <span class="classifier">1.0.2</span></dt>
+<dd><ul class="first last">
+<li>Added considerations for different scaled axes and log scale</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Version <span class="classifier-delimiter">:</span> <span class="classifier">1.0.1</span></dt>
+<dd><ul class="first last">
+<li>First version.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="reference">
+<h2>2.2. Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation">https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation</a></p>
+</div>
+<div class="section" id="list-of-functions">
+<h2>2.3. List of functions<a class="headerlink" href="#list-of-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="#getaxsize">getAxSize</a></li>
+<li><a class="reference internal" href="#curlybrace">curlyBrace</a></li>
+</ul>
+<dl class="function">
+<dt id="curlyBrace.curlyBrace">
+<code class="descclassname">curlyBrace.</code><code class="descname">curlyBrace</code><span class="sig-paren">(</span><em>fig</em>, <em>ax</em>, <em>p1</em>, <em>p2</em>, <em>k_r=0.1</em>, <em>bool_auto=True</em>, <em>str_text=''</em>, <em>int_line_num=2</em>, <em>fontdict={}</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/curlyBrace.html#curlyBrace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#curlyBrace.curlyBrace" title="Permalink to this definition">¶</a></dt>
+<dd><p id="curlybrace">Plot an optionally annotated curly bracket on the given axes of the given figure.</p>
+<p>Note that the brackets are anti-clockwise by default. To reverse the text position, swap
+“p1” and “p2”.</p>
+<p>Note that, when the axes aspect is not set to “equal”, the axes coordinates need to be
+transformed to screen coordinates, otherwise the arcs may not be seeable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>fig</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib figure object</span></dt>
+<dd><p class="first last">The of the target axes.</p>
+</dd>
+<dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib axes object</span></dt>
+<dd><p class="first last">The target axes.</p>
+</dd>
+<dt><strong>p1</strong> <span class="classifier-delimiter">:</span> <span class="classifier">two element numeric list</span></dt>
+<dd><p class="first last">The coordinates of the starting point.</p>
+</dd>
+<dt><strong>p2</strong> <span class="classifier-delimiter">:</span> <span class="classifier">two element numeric list</span></dt>
+<dd><p class="first last">The coordinates of the end point.</p>
+</dd>
+<dt><strong>k_r</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first">This is the gain controlling how “curvy” and “pointy” (height) the bracket is.</p>
+<p class="last">Note that, if this gain is too big, the bracket would be very strange.</p>
+</dd>
+<dt><strong>bool_auto</strong> <span class="classifier-delimiter">:</span> <span class="classifier">boolean</span></dt>
+<dd><p class="first">This is a switch controlling wether to use the auto calculation of axes
+scales.</p>
+<p>When the two axes do not have the same aspects, i.e., not “equal” scales,
+this should be turned on, i.e., True.</p>
+<p>When “equal” aspect is used, this should be turned off, i.e., False.</p>
+<p>If you do not set this to False when setting the axes aspect to “equal”,
+the bracket will be in funny shape.</p>
+<p class="last">Default = True</p>
+</dd>
+<dt><strong>str_text</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first">The annotation text of the bracket. It would displayed at the mid point
+of bracket with the same rotation as the bracket.</p>
+<p>By default, it follows the anti-clockwise convention. To flip it, swap 
+the end point and the starting point.</p>
+<p>The appearance of this string can be set by using “fontdict”, which follows
+the same syntax as the normal matplotlib syntax for font dictionary.</p>
+<p class="last">Default = empty string (no annotation)</p>
+</dd>
+<dt><strong>int_line_num</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first">This argument determines how many lines the string annotation is from the summit
+of the bracket.</p>
+<p>The distance would be affected by the font size, since it basically just a number of
+lines appended to the given string.</p>
+<p class="last">Default = 2</p>
+</dd>
+<dt><strong>fontdict</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dictionary</span></dt>
+<dd><p class="first">This is font dictionary setting the string annotation. It is the same as normal
+matplotlib font dictionary.</p>
+<p class="last">Default = empty dict</p>
+</dd>
+<dt><strong>**kwargs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib line setting arguments</span></dt>
+<dd><p class="first last">This allows the user to set the line arguments using named arguments that are
+the same as in matplotlib.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>theta</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The bracket angle in radians.</p>
+</dd>
+<dt><strong>summit</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list</span></dt>
+<dd><p class="first last">The positions of the bracket summit.</p>
+</dd>
+<dt><strong>arc1</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of lists</span></dt>
+<dd><p class="first last">arc1 positions.</p>
+</dd>
+<dt><strong>arc2</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of lists</span></dt>
+<dd><p class="first last">arc2 positions.</p>
+</dd>
+<dt><strong>arc3</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of lists</span></dt>
+<dd><p class="first last">arc3 positions.</p>
+</dd>
+<dt><strong>arc4</strong> <span class="classifier-delimiter">:</span> <span class="classifier">list of lists</span></dt>
+<dd><p class="first last">arc4 positions.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="curlyBrace.getAxSize">
+<code class="descclassname">curlyBrace.</code><code class="descname">getAxSize</code><span class="sig-paren">(</span><em>fig</em>, <em>ax</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/curlyBrace.html#getAxSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#curlyBrace.getAxSize" title="Permalink to this definition">¶</a></dt>
+<dd><p id="getaxsize">Get the axes size in pixels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>fig</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib figure object</span></dt>
+<dd><p class="first last">The of the target axes.</p>
+</dd>
+<dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib axes object</span></dt>
+<dd><p class="first last">The target axes.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>ax_width</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The axes width in pixels.</p>
+</dd>
+<dt><strong>ax_height</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd><p class="first last">The axes height in pixels.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Demonstration.html" class="btn btn-neutral float-right" title="3. Example Codes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation_and_setup.html" class="btn btn-neutral float-left" title="1. Installation and Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Dr. Gao, Siyu
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

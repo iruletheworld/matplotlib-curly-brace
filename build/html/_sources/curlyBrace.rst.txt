@@ -1,0 +1,6 @@
+Main module : curlyBrace
+========================
+
+.. automodule:: curlyBrace
+    :members:
+    :undoc-members:
