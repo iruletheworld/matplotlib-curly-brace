@@ -11,16 +11,11 @@ The purpose of this project is to allow easy plotting of curly brace between two
 This feature is not built into matplotlib (also, not MATLAB, but there is a very good implementation on File Exchange), and thus the motivation. The author has found some previous implementations, but none would do what the author would like to do, i.e., give the function the xs and ys of two points of
 the axes and plot a curly bracket with text annotation at the summit of the bracket. Therefore, the author decided to write one.
 
-The implementation here is based largely on the implementation by `Pål Næverlid Sævik <https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation>`_ for MATLAB (can be found on File Exchange). Some modifications are done for Python purposes. Some addition features have been implemented, e.g., allow text annotation, negative log (for 'symlog' scale in matplotlib).
-
-This project is built with Python 3.7.1, matplolib 2.2.3 and numpy 1.15.4.
-
-Demo
--------------------------------------------------------------------------------
+The implementation here is based largely on the implementation by `Pål Næverlid Sævik <https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation>`_ for MATLAB (can be found on File Exchange)
 
 
 
-
+Preview
 
 .. toctree::
    :maxdepth: 2
