@@ -15,17 +15,9 @@ The implementation here is based largely on the implementation by `Pål Næverli
 
 This project is built with Python 3.7.1, matplolib 2.2.3 and numpy 1.15.4.
 
-Demo
--------------------------------------------------------------------------------
-
-
-
-
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
 
 
 Indices and tables
