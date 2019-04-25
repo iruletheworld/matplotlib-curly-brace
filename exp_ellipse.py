@@ -19,7 +19,10 @@ https://stackoverflow.com/questions/10952060/plot-ellipse-with-matplotlib-pyplot
 import matplotlib.pyplot as plt
 import numpy as np
 from curlyBrace import curlyBrace
-# import os
+import os
+
+# fig save control
+bool_savefig = False
 
 # figure size and dpi
 dbl_width   = 1000.0
@@ -111,10 +114,16 @@ for i in range(0, len(x1)):
 
     curlyBrace(fig, axes[1], p1, p2, k_r, bool_auto=True, str_text=str_text, color=color2, lw=lw, int_line_num=3, fontdict=font)
 
-# str_filename = os.path.basename(__file__)[:-3] + '.png'
+if bool_savefig:
 
-# str_filename = os.path.join(os.getcwd(), str_filename)
+    str_filename = os.path.basename(__file__)[:-3] + '.png'
 
-# fig.savefig(str_filename, bbox_inches='tight', dpi=300)
+    str_filename = os.path.join(os.getcwd(), str_filename)
+
+    fig.savefig(str_filename, bbox_inches='tight', dpi=300)
+
+else:
+
+    pass
 
 plt.show()

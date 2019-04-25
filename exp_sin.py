@@ -7,8 +7,7 @@ Version : 1.0.0
 
 Last Modified : 2019-04-22
 
-This script is an example to demonstration how to use the "curlyBrace" module to 
-plot curly brackets using matplotlib.
+This script is an example to demonstration how to use the "curlyBrace" module to plot curly brackets using matplotlib.
 
 This example demonstrate annotating two sine waves with the auto scale on and off.
 '''
@@ -16,7 +15,10 @@ This example demonstrate annotating two sine waves with the auto scale on and of
 import matplotlib.pyplot as plt
 import numpy as np
 from curlyBrace import curlyBrace
-# import os
+import os
+
+# save fig control
+bool_savefig = False
 
 # figure size and dpi
 dbl_width   = 800.0
@@ -96,10 +98,17 @@ curlyBrace(fig, axes[1], p2, p1, k_r1, bool_auto=False, str_text=str_text, color
 # anti-clockwise, no need to swap the start point and end point
 curlyBrace(fig, axes[1], p3, p4, k_r2, bool_auto=False, str_text=str_text, color='darkgreen', lw=3, int_line_num=1, fontdict=font)
 
-# str_filename = os.path.basename(__file__)[:-3] + '.png'
+# save fig
+if bool_savefig:
 
-# str_filename = os.path.join(os.getcwd(), str_filename)
+    str_filename = os.path.basename(__file__)[:-3] + '.png'
 
-# fig.savefig(str_filename, bbox_inches='tight', dpi=300)
+    str_filename = os.path.join(os.getcwd(), str_filename)
+
+    fig.savefig(str_filename, bbox_inches='tight', dpi=300)
+
+else:
+
+    pass
 
 plt.show()

@@ -20,6 +20,9 @@ import matplotlib.pyplot as plt
 from curlyBrace import curlyBrace
 import os
 
+# fig save control
+bool_savefig = False
+
 # figure size and dpi
 dbl_width   = 800.0
 dbl_height  = 800.0
@@ -64,10 +67,16 @@ curlyBrace(fig, axes[1], p2, p1, k_r=0.05, str_text='Log', int_line_num=2, color
 
 fig.suptitle('Example: Log scale', fontweight='bold', fontsize=20)
 
-str_filename = os.path.basename(__file__)[:-3] + '.png'
+if bool_savefig:
 
-str_filename = os.path.join(os.getcwd(), str_filename)
+    str_filename = os.path.basename(__file__)[:-3] + '.png'
 
-fig.savefig(str_filename, bbox_inches='tight', dpi=300)
+    str_filename = os.path.join(os.getcwd(), str_filename)
+
+    fig.savefig(str_filename, bbox_inches='tight', dpi=300)
+
+else:
+
+    pass
 
 plt.show()
