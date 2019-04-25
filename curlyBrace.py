@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*- 
 
 '''
-Module Name : curbrac
+Module Name : curlyBrace
 
 Author : 高斯羽 博士 (Dr. GAO, Siyu)
 
-Version : 1.0.1
+Version : 1.0.2
 
 Last Modified : 2019-04-22
 
 This module is basically an Python implementation of the function written Pål Næverlid Sævik
-for Matlab (link in Reference).
+for MATLAB (link in Reference).
 
 The function "curlyBrace" allows you to plot an optionally annotated curly bracket between 
 two points when using matplotlib.
 
-The usual settings for line and fonts in matplotlib also applies.
+The usual settings for line and fonts in matplotlib also apply.
 
 The function takes the axes scales into account automatically. But when the axes aspect is 
 set to "equal", the auto switch should be turned off.
@@ -23,7 +23,8 @@ set to "equal", the auto switch should be turned off.
 Change Log
 ----------------------
 * **Notable changes:**
-    + Version : Added considerations for different scaled axes and log scale
+    + Version : 1.0.2
+        - Added considerations for different scaled axes and log scale
     + Version : 1.0.1
         - First version.
 
@@ -31,8 +32,11 @@ Reference
 ----------------------
 https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation
 
-Definitions
+List of functions
 ----------------------
+
+* getAxSize_
+* curlyBrace_
 
 '''
 
@@ -62,7 +66,7 @@ def getAxSize(fig, ax):
         The axes height in pixels.
 
     Reference
-    --------
+    -----------
     https://stackoverflow.com/questions/19306510/determine-matplotlib-axis-size-in-pixels
     '''
 
@@ -101,7 +105,7 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
         The coordinates of the end point.
 
     k_r : float
-        This is the gain controlling how "curvy" and "pointy" the bracket is.
+        This is the gain controlling how "curvy" and "pointy" (height) the bracket is.
 
         Note that, if this gain is too big, the bracket would be very strange.
 
@@ -135,8 +139,8 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
         This argument determines how many lines the string annotation is from the summit
         of the bracket.
 
-        The distance would be affected by the font size, since it basically just a number
-        lines to the given string.
+        The distance would be affected by the font size, since it basically just a number of
+        lines appended to the given string.
 
         Default = 2
 
@@ -170,9 +174,8 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
     arc4 : list of lists
         arc4 positions.
 
-
     Reference
-    --------
+    ----------
     https://uk.mathworks.com/matlabcentral/fileexchange/38716-curly-brace-annotation
     '''
 
