@@ -5,5 +5,5 @@
 Makefile
 build/
 make.bat
-source\_build
+source/_build/*
 
