@@ -15,10 +15,35 @@ The implementation here is based largely on the implementation by `Pål Næverli
 
 This project is built with Python 3.7.1, matplolib 2.2.3 and numpy 1.15.4.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+Tested on Windows 7.
 
+Main features
+======================================
+
+* **Allows intuitive plotting of a curly bracket between two points within the given axes of the given figure** 
+* **Allows text annotation to be placed at the summit of the bracket with the same rotation as the bracket**
+* **The height of the bracket can be controlled**
+* **Accepts line settings for the bracket lines (same as matplotlib via named parameters, e.g., line width, line colour, etc.)**
+* **Accepts font settings of the annotating text (same as matplotlib, just give a fontdict)**
+* **Works with linear axes and log axes**
+* **Transformation between axes coordinates and screen coordinates can be turned on or off**
+
+The following is an example of plotting two curly brackets to annotate a sine wave.
+
+.. figure:: ../build/html/_sources/img/exp.jpg
+    :alt: example
+
+Table of Contents
+======================================
+
+.. toctree::
+    :maxdepth: 3
+    :numbered:
+
+    installation_and_setup
+    curlyBrace
+    Demonstration
+    Algorithm
 
 Indices and tables
 ==================
