@@ -11,6 +11,8 @@ This project is built with Python 3.7.1, matplolib 2.2.3 and numpy 1.15.4.
 
 Tested on Windows 7.
 
+**The full documentation is in 'build/html/index.html'**
+
 The following is an example of plotting two curly brackets to annotate a sine wave.
 
 ![Example](build/html/_sources/img/exp.jpg)
