@@ -17,6 +17,11 @@ This project is built with Python 3.7.1, matplolib 2.2.3 and numpy 1.15.4.
 
 Tested on Windows 7.
 
+The following is an example of plotting two curly brackets to annotate a sine wave.
+
+.. figure:: ../build/html/_sources/img/exp.jpg
+    :alt: example
+
 Main features
 ======================================
 
@@ -27,11 +32,6 @@ Main features
 * **Accepts font settings of the annotating text (same as matplotlib, just give a fontdict)**
 * **Works with linear axes and log axes**
 * **Transformation between axes coordinates and screen coordinates can be turned on or off**
-
-The following is an example of plotting two curly brackets to annotate a sine wave.
-
-.. figure:: ../build/html/_sources/img/exp.jpg
-    :alt: example
 
 Table of Contents
 ======================================

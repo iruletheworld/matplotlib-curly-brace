@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; curlyBrace 1.0.1 documentation</title>
+  <title>4. The Algorithm &mdash; curlyBrace 1.0.1 documentation</title>
   
 
   
@@ -33,8 +32,9 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="3. Example Codes" href="Demonstration.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,11 +78,11 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation_and_setup.html">1. Installation and Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="curlyBrace.html">2. Main Module : curlyBrace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Demonstration.html">3. Example Codes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Algorithm.html">4. The Algorithm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. The Algorithm</a></li>
 </ul>
 
             
@@ -128,12 +128,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Index</li>
+      <li>4. The Algorithm</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/Algorithm.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -145,40 +147,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- <a href="#C"><strong>C</strong></a>
- | <a href="#G"><strong>G</strong></a>
- 
+  <div class="section" id="the-algorithm">
+<h1>4. The Algorithm<a class="headerlink" href="#the-algorithm" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the algorithm.</p>
+<p>A curly bracket can be divided into 6 parts: 4 arcs and 2 straight lines.</p>
+<p>For easy reference, name the 4 arcs from left to right (assuming the bracket is pointing up) as: arc1, arc2, arc3 and arc4. Also, name the two lines as line1 and line2. If all the points of all the arcs are known, then, by connecting the last point of arc1 and the first point of arc2, line1 can be formed. Similarly, line2 can also be formed once all the points of arc3 and arc4 are known. Therefore, the crucial thing here is to get all the points of all the arcs.</p>
+<p>The angle of the straight line formed by the starting point and the end point can be calculated by an atan method that considers quadrants. The radius of the arcs, assuming they are quater circles, can be set as proportional to the lenght of the aforementioned straight line. Let the user decide the proportion.</p>
+<p>The centre of arc1 is on the aforementioned straight line and distances from the starting point by the length of the radius. All the points of arc1 can then calculated. The detailed method is in the source code. Similarly, all the points of arc4 can be calculated.</p>
+<p>The centre of arc2 has a perpendicular ditance to the aforementioned straight line of twice the radius. It also distances from the midpoint of the straight line of one radius (along the direction of the straight line). By accounting the angle rotation of the arc, all the points of arc2 can be calculated (see source code for details). Similarly, all the points of arc3 can be calculated.</p>
+<p>This algorithm has a lot to do with playing with geometry. You can also play with Sigmoid function to make curly brackets (but I like this one here).</p>
+<p>For the text annotation, it is actually quite simple. Just use standard matplotlib text should be suffice. The only thing need to take into account is how far the text should be from the summit of bracket. This can be achieved by allow line breaks to be pad to the text. But whether to pad the lines before or after the text depends on where the bracket is, since the summit can be pointing up or down depending on the quadrants.</p>
+<p>The catch is that the axes coordinates need to transformed into screen coordinates to calculate the pixels and the transform back. Otherwise the bracket may appear as just a straight line.</p>
+<p>Log scale can be dealt with just by logging the axis/axes limits and then expoential the arcs’ points back.</p>
+<p>The real difficult thing is the symlog scale since it is part log, part linear and this breaks the transformation and makes the bracket looks funny.</p>
 </div>
-<h2 id="C">C</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curlyBrace.html#module-curlyBrace">curlyBrace (module)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curlyBrace.html#curlyBrace.curlyBrace">curlyBrace() (in module curlyBrace)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="G">G</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curlyBrace.html#curlyBrace.getAxSize">getAxSize() (in module curlyBrace)</a>
-</li>
-  </ul></td>
-</tr></table>
-
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Demonstration.html" class="btn btn-neutral float-left" title="3. Example Codes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

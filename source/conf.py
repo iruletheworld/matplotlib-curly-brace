@@ -21,8 +21,8 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'curlyBrace'
-copyright = '2019, Dr. Gao, Siyu'
-author = 'Dr. Gao, Siyu'
+copyright = '2019, 高斯羽 博士 (Dr. Gao, Siyu)'
+author = '高斯羽 博士 (Dr. Gao, Siyu)'
 
 # The short X.Y version
 version = ''
