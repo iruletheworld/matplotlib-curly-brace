@@ -41,7 +41,9 @@ The following is an example of plotting two curly brackets to annotate a sine wa
 
 ### Annotating sine waves
 
-![Example](build/html/_sources/img/exp_sin.png)
+<!-- ![Example](build/html/_sources/img/exp_sin.png =250x200) -->
+<img src="build/html/_sources/img/exp_sin.png" alt="exp_sin" width="400"/>
+
 
 ```python
 import matplotlib.pyplot as plt
@@ -149,20 +151,27 @@ plt.show()
 
 ### Annotating circles
 
-![Example](build/html/_sources/img/exp_circle.png)
+<!-- ![Example](build/html/_sources/img/exp_circle.png) -->
+
+<img src="build/html/_sources/img/exp_circle.png" alt="exp_circle" width="400"/>
 
 ### Annotating log scale
 
-![Example](build/html/_sources/img/exp_log.png)
+<!-- ![Example](build/html/_sources/img/exp_log.png) -->
+
+<img src="build/html/_sources/img/exp_log.png" alt="exp_log" width="400"/>
 
 ### Annotating ellipses
 
-![Example](build/html/_sources/img/exp_ellipse.png)
+<!-- ![Example](build/html/_sources/img/exp_ellipse.png) -->
+
+<img src="build/html/_sources/img/exp_ellipse.png" alt="exp_ellipse" width="400"/>
 
 ### Annotating astroids
 
-![Example](build/html/_sources/img/exp_astroid.png)
+<!-- ![Example](build/html/_sources/img/exp_astroid.png) -->
 
+<img src="build/html/_sources/img/exp_astroid.png" alt="exp_astroid" width="400"/>
 
 ## Contributing
 
