@@ -1,5 +1,7 @@
 # Plot curly brace with matplotlib
 
+**The full documentation is [here](https://matplotlib-curly-brace.readthedocs.io/en/latest/).**
+
 The purpose of this project is to allow easy plotting of curly brace between two points when using matplotlib.
 
 This feature is not built into matplotlib (also, not MATLAB, but there is a very good implementation on File Exchange), and thus the motivation. The author has found some previous implementations, but none would do what the author would like to do, i.e., give the function the xs and ys of two points of
