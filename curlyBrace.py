@@ -478,7 +478,8 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
         pass
 
     # plot arcs
-    ax.plot(arc1x, arc1y, **kwargs)
+    l, = ax.plot(arc1x, arc1y, **kwargs)
+    kwargs["color"] = l.get_color()
     ax.plot(arc2x, arc2y, **kwargs)
     ax.plot(arc3x, arc3y, **kwargs)
     ax.plot(arc4x, arc4y, **kwargs)
