@@ -500,25 +500,37 @@ def curlyBrace(fig, ax, p1, p2, k_r=0.1, bool_auto=True, str_text='', int_line_n
 
         if (ang >= 0.0) and (ang <= 90.0):
 
-            rotation = ang
-
-            str_text = str_text + str_temp
+            if ax_ylim[0] < ax_ylim[1]:
+                rotation = ang
+                str_text = str_text + str_temp
+            else:
+                rotation = -ang
+                str_text = str_temp + str_text
 
         if (ang > 90.0) and (ang < 270.0):
 
-            rotation = ang + 180.0
-
-            str_text = str_temp + str_text
+            if ax_ylim[0] < ax_ylim[1]:
+                rotation = ang + 180.0
+                str_text = str_temp + str_text
+            else:
+                rotation = -(ang + 180.0)
+                str_text = str_text + str_temp
 
         elif (ang >= 270.0) and (ang <= 360.0):
 
-            rotation = ang
-
-            str_text = str_text + str_temp
+            if ax_ylim[0] < ax_ylim[1]:
+                rotation = ang
+                str_text = str_text + str_temp
+            else:
+                rotation = -ang
+                str_text = str_temp + str_text
 
         else:
 
-            rotation = ang
+            if ax_ylim[0] < ax_ylim[1]:
+                rotation = ang
+            else:
+                rotation = -ang
 
         ax.axes.text(arc2x[-1], arc2y[-1], str_text, ha='center', va='center', rotation=rotation, fontdict=fontdict)
 
